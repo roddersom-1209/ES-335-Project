@@ -1,0 +1,627 @@
+{
+ "target": "log_price = natural log of the launch price in ₹; price = exp(log_price)",
+ "unknown_category": "a brand or chip group not listed contributes 0",
+ "transforms": {
+  "log2_ram": {
+   "from": "ram_gb",
+   "transform": "log2"
+  },
+  "log2_storage": {
+   "from": "storage_gb",
+   "transform": "log2"
+  },
+  "battery_mah": {
+   "from": "battery_mah",
+   "transform": "none"
+  },
+  "screen_in": {
+   "from": "screen_in",
+   "transform": "none"
+  },
+  "main_back_mp": {
+   "from": "main_back_mp",
+   "transform": "none"
+  },
+  "front_mp": {
+   "from": "front_mp",
+   "transform": "none"
+  },
+  "n_back_cameras": {
+   "from": "n_back_cameras",
+   "transform": "none"
+  },
+  "weight_g": {
+   "from": "weight_g",
+   "transform": "none"
+  },
+  "year": {
+   "from": "year",
+   "transform": "none"
+  }
+ },
+ "inputs": {
+  "ram_gb": {
+   "min": 2.0,
+   "max": 16.0,
+   "median": 8.0,
+   "values": [
+    2.0,
+    3.0,
+    4.0,
+    6.0,
+    8.0,
+    10.0,
+    12.0,
+    16.0
+   ]
+  },
+  "storage_gb": {
+   "min": 16.0,
+   "max": 1024.0,
+   "median": 128.0,
+   "values": [
+    16.0,
+    32.0,
+    64.0,
+    128.0,
+    256.0,
+    512.0,
+    1024.0
+   ]
+  },
+  "battery_mah": {
+   "min": 2227.0,
+   "max": 6500.0,
+   "median": 5000.0
+  },
+  "screen_in": {
+   "min": 5.2,
+   "max": 7.92,
+   "median": 6.6
+  },
+  "main_back_mp": {
+   "min": 8.0,
+   "max": 200.0,
+   "median": 50.0
+  },
+  "front_mp": {
+   "min": 5.0,
+   "max": 60.0,
+   "median": 16.0
+  },
+  "n_back_cameras": {
+   "min": 1.0,
+   "max": 4.0,
+   "median": 2.0,
+   "values": [
+    1.0,
+    2.0,
+    3.0,
+    4.0
+   ]
+  },
+  "weight_g": {
+   "min": 135.0,
+   "max": 280.0,
+   "median": 191.0
+  },
+  "year": {
+   "min": 2014.0,
+   "max": 2025.0,
+   "median": 2023.0
+  }
+ },
+ "observed": {
+  "ram_storage": [
+   [
+    2.0,
+    16.0
+   ],
+   [
+    2.0,
+    32.0
+   ],
+   [
+    2.0,
+    64.0
+   ],
+   [
+    3.0,
+    32.0
+   ],
+   [
+    3.0,
+    64.0
+   ],
+   [
+    3.0,
+    128.0
+   ],
+   [
+    3.0,
+    256.0
+   ],
+   [
+    4.0,
+    32.0
+   ],
+   [
+    4.0,
+    64.0
+   ],
+   [
+    4.0,
+    128.0
+   ],
+   [
+    4.0,
+    256.0
+   ],
+   [
+    4.0,
+    512.0
+   ],
+   [
+    6.0,
+    64.0
+   ],
+   [
+    6.0,
+    128.0
+   ],
+   [
+    6.0,
+    256.0
+   ],
+   [
+    6.0,
+    512.0
+   ],
+   [
+    8.0,
+    128.0
+   ],
+   [
+    8.0,
+    256.0
+   ],
+   [
+    8.0,
+    512.0
+   ],
+   [
+    10.0,
+    256.0
+   ],
+   [
+    12.0,
+    128.0
+   ],
+   [
+    12.0,
+    256.0
+   ],
+   [
+    12.0,
+    512.0
+   ],
+   [
+    12.0,
+    1024.0
+   ],
+   [
+    16.0,
+    256.0
+   ],
+   [
+    16.0,
+    512.0
+   ],
+   [
+    16.0,
+    1024.0
+   ]
+  ],
+  "brand_chip": [
+   [
+    "Apple",
+    "flagship_sd8_or_apple"
+   ],
+   [
+    "Google",
+    "flagship_sd8_or_apple"
+   ],
+   [
+    "Google",
+    "snapdragon_other"
+   ],
+   [
+    "Google",
+    "tensor"
+   ],
+   [
+    "Infinix",
+    "dimensity_high"
+   ],
+   [
+    "Infinix",
+    "dimensity_other"
+   ],
+   [
+    "Infinix",
+    "helio"
+   ],
+   [
+    "Infinix",
+    "snapdragon_other"
+   ],
+   [
+    "Infinix",
+    "unisoc"
+   ],
+   [
+    "Lenovo",
+    "flagship_sd8_or_apple"
+   ],
+   [
+    "Lenovo",
+    "snapdragon_other"
+   ],
+   [
+    "Lenovo",
+    "unisoc"
+   ],
+   [
+    "Motorola",
+    "dimensity_high"
+   ],
+   [
+    "Motorola",
+    "dimensity_other"
+   ],
+   [
+    "Motorola",
+    "exynos"
+   ],
+   [
+    "Motorola",
+    "flagship_sd8_or_apple"
+   ],
+   [
+    "Motorola",
+    "helio"
+   ],
+   [
+    "Motorola",
+    "snapdragon_other"
+   ],
+   [
+    "Motorola",
+    "unisoc"
+   ],
+   [
+    "Nokia",
+    "helio"
+   ],
+   [
+    "Nokia",
+    "snapdragon_other"
+   ],
+   [
+    "Nokia",
+    "unisoc"
+   ],
+   [
+    "OnePlus",
+    "dimensity_high"
+   ],
+   [
+    "OnePlus",
+    "dimensity_other"
+   ],
+   [
+    "OnePlus",
+    "flagship_sd8_or_apple"
+   ],
+   [
+    "OnePlus",
+    "snapdragon_other"
+   ],
+   [
+    "Oppo",
+    "dimensity_high"
+   ],
+   [
+    "Oppo",
+    "dimensity_other"
+   ],
+   [
+    "Oppo",
+    "flagship_sd8_or_apple"
+   ],
+   [
+    "Oppo",
+    "helio"
+   ],
+   [
+    "Oppo",
+    "snapdragon_other"
+   ],
+   [
+    "Other",
+    "flagship_sd8_or_apple"
+   ],
+   [
+    "Other",
+    "kirin"
+   ],
+   [
+    "Other",
+    "snapdragon_other"
+   ],
+   [
+    "POCO",
+    "dimensity_high"
+   ],
+   [
+    "POCO",
+    "dimensity_other"
+   ],
+   [
+    "POCO",
+    "flagship_sd8_or_apple"
+   ],
+   [
+    "POCO",
+    "helio"
+   ],
+   [
+    "POCO",
+    "snapdragon_other"
+   ],
+   [
+    "Realme",
+    "dimensity_high"
+   ],
+   [
+    "Realme",
+    "dimensity_other"
+   ],
+   [
+    "Realme",
+    "flagship_sd8_or_apple"
+   ],
+   [
+    "Realme",
+    "helio"
+   ],
+   [
+    "Realme",
+    "snapdragon_other"
+   ],
+   [
+    "Realme",
+    "unisoc"
+   ],
+   [
+    "Samsung",
+    "dimensity_other"
+   ],
+   [
+    "Samsung",
+    "exynos"
+   ],
+   [
+    "Samsung",
+    "flagship_sd8_or_apple"
+   ],
+   [
+    "Samsung",
+    "helio"
+   ],
+   [
+    "Samsung",
+    "snapdragon_other"
+   ],
+   [
+    "Tecno",
+    "dimensity_high"
+   ],
+   [
+    "Tecno",
+    "dimensity_other"
+   ],
+   [
+    "Tecno",
+    "helio"
+   ],
+   [
+    "Tecno",
+    "unisoc"
+   ],
+   [
+    "Vivo",
+    "dimensity_high"
+   ],
+   [
+    "Vivo",
+    "dimensity_other"
+   ],
+   [
+    "Vivo",
+    "flagship_sd8_or_apple"
+   ],
+   [
+    "Vivo",
+    "helio"
+   ],
+   [
+    "Vivo",
+    "snapdragon_other"
+   ],
+   [
+    "Xiaomi",
+    "dimensity_high"
+   ],
+   [
+    "Xiaomi",
+    "dimensity_other"
+   ],
+   [
+    "Xiaomi",
+    "flagship_sd8_or_apple"
+   ],
+   [
+    "Xiaomi",
+    "snapdragon_other"
+   ]
+  ]
+ },
+ "brands": [
+  "Apple",
+  "Google",
+  "Infinix",
+  "Lenovo",
+  "Motorola",
+  "Nokia",
+  "OnePlus",
+  "Oppo",
+  "Other",
+  "POCO",
+  "Realme",
+  "Samsung",
+  "Tecno",
+  "Vivo",
+  "Xiaomi"
+ ],
+ "chip_groups": [
+  "dimensity_high",
+  "dimensity_other",
+  "exynos",
+  "flagship_sd8_or_apple",
+  "helio",
+  "kirin",
+  "snapdragon_other",
+  "tensor",
+  "unisoc"
+ ],
+ "ridge": {
+  "description": "log_price = intercept + sum(coef_j * (x_j - mean_j) / scale_j) + chip_group coef + brand coef",
+  "alpha": 1.5264179671752334,
+  "numeric_features": [
+   "log2_ram",
+   "log2_storage",
+   "battery_mah",
+   "screen_in",
+   "main_back_mp",
+   "front_mp",
+   "n_back_cameras",
+   "weight_g",
+   "year"
+  ],
+  "means": [
+   2.841984257673238,
+   7.489247311827957,
+   4673.044802867384,
+   6.567885304659498,
+   48.32150537634409,
+   19.37437275985663,
+   1.7652329749103943,
+   193.136917562724,
+   2022.1702508960573
+  ],
+  "scales": [
+   0.6266449842941607,
+   0.9093653345035297,
+   721.1262197940272,
+   0.33206885071021636,
+   26.20725917710847,
+   11.535758922826284,
+   0.8276640702037292,
+   18.482494842098188,
+   1.9020956961755608
+  ],
+  "numeric_coefs": [
+   0.24964462442245217,
+   0.09462966805480141,
+   -0.1627705899816091,
+   0.048655187602318864,
+   -0.0010709782853053746,
+   0.03877884836513805,
+   -0.04054152369610812,
+   0.11006436749709965,
+   0.0728199390809394
+  ],
+  "intercept": 10.42770539081653,
+  "categories": {
+   "chip_group": {
+    "dimensity_high": 0.2045877434193391,
+    "dimensity_other": -0.12778224295513851,
+    "exynos": 0.09032217768519334,
+    "flagship_sd8_or_apple": 0.4620670351471511,
+    "helio": -0.2842773743595202,
+    "kirin": -0.028501567386733907,
+    "snapdragon_other": -0.004305602927467441,
+    "tensor": 0.08546054115253485,
+    "unisoc": -0.3975707097752121
+   },
+   "brand": {
+    "Apple": 0.6796742168836056,
+    "Google": 0.4553768383958901,
+    "Infinix": -0.4178905983569028,
+    "Lenovo": -0.32304959041280434,
+    "Motorola": -0.15919252995646735,
+    "Nokia": -0.09958687828755852,
+    "OnePlus": -0.21957121577148306,
+    "Oppo": -0.0183701442869586,
+    "Other": 0.5967298966749446,
+    "POCO": -0.3036059232635795,
+    "Realme": -0.3191987324459711,
+    "Samsung": 0.18195550088280882,
+    "Tecno": -0.12197944997966918,
+    "Vivo": -0.011169885521965657,
+    "Xiaomi": 0.0798784954459515
+   }
+  }
+ },
+ "model_a": {
+  "description": "log_price = intercept + sum(coef_j * x_j) + chip_group coef (reference category = 0)",
+  "numeric_features": [
+   "log2_ram",
+   "log2_storage",
+   "battery_mah",
+   "screen_in",
+   "main_back_mp",
+   "front_mp",
+   "n_back_cameras",
+   "weight_g",
+   "year"
+  ],
+  "numeric_coefs": [
+   0.2398360418374978,
+   0.2030278099700749,
+   -0.0003750720369921611,
+   -0.2073800459054579,
+   -0.00023590841467430225,
+   0.0010437887604667273,
+   -0.008075453345748647,
+   0.011304999041203469,
+   0.06928771496541697
+  ],
+  "intercept": -130.99060888246936,
+  "reference_chip_group": "snapdragon_other",
+  "categories": {
+   "chip_group": {
+    "snapdragon_other": 0.0,
+    "dimensity_high": 0.22647250569786628,
+    "dimensity_other": -0.13281226611062713,
+    "exynos": 0.2688278444302817,
+    "flagship_sd8_or_apple": 0.6097525958422543,
+    "helio": -0.410113909005966,
+    "kirin": 0.6922997197579768,
+    "tensor": 0.5598831695767832,
+    "unisoc": -0.6008622189568404
+   }
+  }
+ }
+}

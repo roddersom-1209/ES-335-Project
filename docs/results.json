@@ -1,0 +1,594 @@
+{
+ "data": {
+  "raw_rows": 930,
+  "phones": 702,
+  "train_phones": 558,
+  "test_phones": 144,
+  "train_models": 380,
+  "test_models": 95,
+  "brands": 15,
+  "chip_groups": 9,
+  "web_lookup_phones": 7,
+  "processor_names": 180,
+  "flagged_phones": 24,
+  "flagged_test_phones": 2,
+  "year_min": 2014,
+  "year_max": 2025,
+  "price_min": 5999.0,
+  "price_max": 274999.0,
+  "price_median": 34999.0
+ },
+ "cleaning": [
+  {
+   "step": "raw file",
+   "rows_left": 930,
+   "dropped": 0
+  },
+  {
+   "step": "remove tablets",
+   "rows_left": 830,
+   "dropped": 100
+  },
+  {
+   "step": "drop exact duplicates",
+   "rows_left": 815,
+   "dropped": 15
+  },
+  {
+   "step": "drop rows with missing values",
+   "rows_left": 702,
+   "dropped": 113
+  }
+ ],
+ "method": {
+  "cv_folds": 5,
+  "test_share": 0.2,
+  "bootstrap_resamples": 1000
+ },
+ "best_model": "Gradient boosting",
+ "interpretable_model": "Ridge",
+ "models": {
+  "Baseline 1: overall mean": {
+   "test_r2": -0.013687,
+   "test_r2_low": -0.136887,
+   "test_r2_high": -5.1e-05,
+   "test_median_pct": 58.727126,
+   "test_median_pct_low": 50.439709,
+   "test_median_pct_high": 67.671737,
+   "test_mae_rs": 26742.0,
+   "test_median_abs_error_rs": 22146.0,
+   "cv_r2": -0.005796,
+   "cv_r2_std": 0.005365,
+   "cv_median_pct": 59.056667,
+   "cv_median_pct_std": 2.360841,
+   "cv_mae_rs": 29797.0,
+   "cv_mae_rs_std": 2812.0
+  },
+  "Baseline 2: brand mean": {
+   "test_r2": 0.512485,
+   "test_r2_low": 0.322724,
+   "test_r2_high": 0.644592,
+   "test_median_pct": 33.501013,
+   "test_median_pct_low": 28.376738,
+   "test_median_pct_high": 42.61036,
+   "test_mae_rs": 17240.0,
+   "test_median_abs_error_rs": 13444.0,
+   "cv_r2": 0.366233,
+   "cv_r2_std": 0.056148,
+   "cv_median_pct": 40.300068,
+   "cv_median_pct_std": 3.10716,
+   "cv_mae_rs": 22181.0,
+   "cv_mae_rs_std": 2706.0
+  },
+  "Model A: specs + chip": {
+   "test_r2": 0.785022,
+   "test_r2_low": 0.682719,
+   "test_r2_high": 0.853443,
+   "test_median_pct": 23.663935,
+   "test_median_pct_low": 18.253552,
+   "test_median_pct_high": 27.751404,
+   "test_mae_rs": 11638.0,
+   "test_median_abs_error_rs": 7762.0,
+   "cv_r2": 0.773393,
+   "cv_r2_std": 0.03862,
+   "cv_median_pct": 23.331389,
+   "cv_median_pct_std": 1.732947,
+   "cv_mae_rs": 14273.0,
+   "cv_mae_rs_std": 2048.0
+  },
+  "Model B: specs + chip + brand": {
+   "test_r2": 0.85127,
+   "test_r2_low": 0.789432,
+   "test_r2_high": 0.896091,
+   "test_median_pct": 21.583051,
+   "test_median_pct_low": 15.360026,
+   "test_median_pct_high": 27.051741,
+   "test_mae_rs": 10580.0,
+   "test_median_abs_error_rs": 6913.0,
+   "cv_r2": 0.844914,
+   "cv_r2_std": 0.017974,
+   "cv_median_pct": 18.205566,
+   "cv_median_pct_std": 2.195839,
+   "cv_mae_rs": 11757.0,
+   "cv_mae_rs_std": 1658.0
+  },
+  "Ridge": {
+   "test_r2": 0.849472,
+   "test_r2_low": 0.78477,
+   "test_r2_high": 0.895843,
+   "test_median_pct": 21.533273,
+   "test_median_pct_low": 15.870961,
+   "test_median_pct_high": 26.254299,
+   "test_mae_rs": 10443.0,
+   "test_median_abs_error_rs": 6617.0,
+   "cv_r2": 0.847158,
+   "cv_r2_std": 0.019262,
+   "cv_median_pct": 18.342558,
+   "cv_median_pct_std": 2.355338,
+   "cv_mae_rs": 11588.0,
+   "cv_mae_rs_std": 1767.0
+  },
+  "Lasso": {
+   "test_r2": 0.854947,
+   "test_r2_low": 0.792826,
+   "test_r2_high": 0.898821,
+   "test_median_pct": 20.899725,
+   "test_median_pct_low": 15.751766,
+   "test_median_pct_high": 25.937659,
+   "test_mae_rs": 10146.0,
+   "test_median_abs_error_rs": 5792.0,
+   "cv_r2": 0.848194,
+   "cv_r2_std": 0.01885,
+   "cv_median_pct": 18.037042,
+   "cv_median_pct_std": 2.080902,
+   "cv_mae_rs": 11633.0,
+   "cv_mae_rs_std": 1807.0
+  },
+  "Elastic net": {
+   "test_r2": 0.854092,
+   "test_r2_low": 0.791602,
+   "test_r2_high": 0.898363,
+   "test_median_pct": 20.959111,
+   "test_median_pct_low": 15.437342,
+   "test_median_pct_high": 26.496447,
+   "test_mae_rs": 10157.0,
+   "test_median_abs_error_rs": 5832.0,
+   "cv_r2": 0.848245,
+   "cv_r2_std": 0.019,
+   "cv_median_pct": 18.129125,
+   "cv_median_pct_std": 2.002177,
+   "cv_mae_rs": 11617.0,
+   "cv_mae_rs_std": 1813.0
+  },
+  "Decision tree (depth 3)": {
+   "test_r2": 0.795348,
+   "test_r2_low": 0.712572,
+   "test_r2_high": 0.85249,
+   "test_median_pct": 21.550555,
+   "test_median_pct_low": 19.785178,
+   "test_median_pct_high": 28.129851,
+   "test_mae_rs": 10514.0,
+   "test_median_abs_error_rs": 7264.0,
+   "cv_r2": 0.674702,
+   "cv_r2_std": 0.031719,
+   "cv_median_pct": 26.353641,
+   "cv_median_pct_std": 2.975258,
+   "cv_mae_rs": 15836.0,
+   "cv_mae_rs_std": 1846.0
+  },
+  "Decision tree (best depth)": {
+   "test_r2": 0.845742,
+   "test_r2_low": 0.765996,
+   "test_r2_high": 0.896369,
+   "test_median_pct": 16.679022,
+   "test_median_pct_low": 11.983976,
+   "test_median_pct_high": 20.000571,
+   "test_mae_rs": 8693.0,
+   "test_median_abs_error_rs": 6055.0,
+   "cv_r2": 0.832208,
+   "cv_r2_std": 0.027558,
+   "cv_median_pct": 16.125322,
+   "cv_median_pct_std": 2.059184,
+   "cv_mae_rs": 11346.0,
+   "cv_mae_rs_std": 1226.0
+  },
+  "Random forest": {
+   "test_r2": 0.924717,
+   "test_r2_low": 0.883978,
+   "test_r2_high": 0.951079,
+   "test_median_pct": 12.687306,
+   "test_median_pct_low": 10.326322,
+   "test_median_pct_high": 15.84059,
+   "test_mae_rs": 6369.0,
+   "test_median_abs_error_rs": 4077.0,
+   "cv_r2": 0.90917,
+   "cv_r2_std": 0.01446,
+   "cv_median_pct": 13.171222,
+   "cv_median_pct_std": 1.733828,
+   "cv_mae_rs": 9350.0,
+   "cv_mae_rs_std": 1805.0
+  },
+  "Gradient boosting": {
+   "test_r2": 0.931799,
+   "test_r2_low": 0.89743,
+   "test_r2_high": 0.954953,
+   "test_median_pct": 12.356999,
+   "test_median_pct_low": 9.626768,
+   "test_median_pct_high": 14.300438,
+   "test_mae_rs": 6050.0,
+   "test_median_abs_error_rs": 3855.0,
+   "cv_r2": 0.914183,
+   "cv_r2_std": 0.014573,
+   "cv_median_pct": 12.708455,
+   "cv_median_pct_std": 1.722504,
+   "cv_mae_rs": 8880.0,
+   "cv_mae_rs_std": 1968.0
+  },
+  "AdaBoost": {
+   "test_r2": 0.925584,
+   "test_r2_low": 0.887308,
+   "test_r2_high": 0.951186,
+   "test_median_pct": 13.333867,
+   "test_median_pct_low": 11.647923,
+   "test_median_pct_high": 16.053178,
+   "test_mae_rs": 6328.0,
+   "test_median_abs_error_rs": 4890.0,
+   "cv_r2": 0.915675,
+   "cv_r2_std": 0.018546,
+   "cv_median_pct": 11.562883,
+   "cv_median_pct_std": 1.177766,
+   "cv_mae_rs": 8455.0,
+   "cv_mae_rs_std": 1896.0
+  }
+ },
+ "within": {
+  "Gradient boosting": {
+   "within_10": 0.409722,
+   "within_20": 0.722222,
+   "within_30": 0.881944
+  },
+  "Random forest": {
+   "within_10": 0.388889,
+   "within_20": 0.701389,
+   "within_30": 0.902778
+  },
+  "Ridge": {
+   "within_10": 0.25,
+   "within_20": 0.472222,
+   "within_30": 0.638889
+  },
+  "Model B: specs + chip + brand": {
+   "within_10": 0.243056,
+   "within_20": 0.444444,
+   "within_30": 0.631944
+  }
+ },
+ "error_by_band": {
+  "Gradient boosting": {
+   "< ₹15k": {
+    "median_pct": 10.390567,
+    "mae_rs": 2113.0,
+    "phones": 29
+   },
+   "₹15–30k": {
+    "median_pct": 13.696592,
+    "mae_rs": 4350.0,
+    "phones": 42
+   },
+   "₹30–60k": {
+    "median_pct": 13.698521,
+    "mae_rs": 6467.0,
+    "phones": 32
+   },
+   "₹60k+": {
+    "median_pct": 11.18926,
+    "mae_rs": 10250.0,
+    "phones": 41
+   }
+  },
+  "Random forest": {
+   "< ₹15k": {
+    "median_pct": 14.640976,
+    "mae_rs": 2862.0,
+    "phones": 29
+   },
+   "₹15–30k": {
+    "median_pct": 14.669951,
+    "mae_rs": 4266.0,
+    "phones": 42
+   },
+   "₹30–60k": {
+    "median_pct": 12.071359,
+    "mae_rs": 6485.0,
+    "phones": 32
+   },
+   "₹60k+": {
+    "median_pct": 12.573616,
+    "mae_rs": 10912.0,
+    "phones": 41
+   }
+  },
+  "Ridge": {
+   "< ₹15k": {
+    "median_pct": 24.571121,
+    "mae_rs": 3333.0,
+    "phones": 29
+   },
+   "₹15–30k": {
+    "median_pct": 23.554942,
+    "mae_rs": 7192.0,
+    "phones": 42
+   },
+   "₹30–60k": {
+    "median_pct": 20.910677,
+    "mae_rs": 11124.0,
+    "phones": 32
+   },
+   "₹60k+": {
+    "median_pct": 14.070878,
+    "mae_rs": 18270.0,
+    "phones": 41
+   }
+  },
+  "Model B: specs + chip + brand": {
+   "< ₹15k": {
+    "median_pct": 21.52586,
+    "mae_rs": 3262.0,
+    "phones": 29
+   },
+   "₹15–30k": {
+    "median_pct": 23.782951,
+    "mae_rs": 7065.0,
+    "phones": 42
+   },
+   "₹30–60k": {
+    "median_pct": 20.323047,
+    "mae_rs": 10812.0,
+    "phones": 32
+   },
+   "₹60k+": {
+    "median_pct": 20.126834,
+    "mae_rs": 19175.0,
+    "phones": 41
+   }
+  }
+ },
+ "paired_differences": {
+  "Gradient boosting − Ridge": {
+   "delta_median_pct": -9.176274,
+   "low": -14.590311,
+   "high": -2.757623,
+   "share_first_better": 0.999,
+   "delta_r2": 0.082326,
+   "delta_r2_low": 0.043837,
+   "delta_r2_high": 0.132659
+  },
+  "Random forest − Ridge": {
+   "delta_median_pct": -8.845968,
+   "low": -13.244849,
+   "high": -2.738488,
+   "share_first_better": 1.0,
+   "delta_r2": 0.075245,
+   "delta_r2_low": 0.039769,
+   "delta_r2_high": 0.124194
+  },
+  "Gradient boosting − Random forest": {
+   "delta_median_pct": -0.330307,
+   "low": -3.361006,
+   "high": 1.824483,
+   "share_first_better": 0.725,
+   "delta_r2": 0.007082,
+   "delta_r2_low": -0.010797,
+   "delta_r2_high": 0.025099
+  },
+  "Ridge − Model B: specs + chip + brand": {
+   "delta_median_pct": -0.049778,
+   "low": -2.131994,
+   "high": 2.001697,
+   "share_first_better": 0.576,
+   "delta_r2": -0.001798,
+   "delta_r2_low": -0.007166,
+   "delta_r2_high": 0.003626
+  },
+  "AdaBoost − Gradient boosting": {
+   "delta_median_pct": 0.976868,
+   "low": -1.058495,
+   "high": 3.520308,
+   "share_first_better": 0.126,
+   "delta_r2": -0.006214,
+   "delta_r2_low": -0.024254,
+   "delta_r2_high": 0.010213
+  }
+ },
+ "without_flagged": {
+  "Ridge": {
+   "test_phones": 142,
+   "r2": 0.845998,
+   "median_pct": 21.727351
+  },
+  "Gradient boosting": {
+   "test_phones": 142,
+   "r2": 0.93051,
+   "median_pct": 12.410576
+  }
+ },
+ "error_by_brand": {
+  "min_phones": 5,
+  "brands": [
+   {
+    "brand": "Vivo",
+    "phones": 29,
+    "ridge_median_pct": 24.340189,
+    "boosting_median_pct": 15.13973
+   },
+   {
+    "brand": "Apple",
+    "phones": 21,
+    "ridge_median_pct": 24.814377,
+    "boosting_median_pct": 11.634255
+   },
+   {
+    "brand": "Oppo",
+    "phones": 15,
+    "ridge_median_pct": 20.458615,
+    "boosting_median_pct": 7.709482
+   },
+   {
+    "brand": "Xiaomi",
+    "phones": 13,
+    "ridge_median_pct": 20.370679,
+    "boosting_median_pct": 13.068523
+   },
+   {
+    "brand": "Motorola",
+    "phones": 12,
+    "ridge_median_pct": 10.136981,
+    "boosting_median_pct": 13.970503
+   },
+   {
+    "brand": "Infinix",
+    "phones": 12,
+    "ridge_median_pct": 17.314834,
+    "boosting_median_pct": 11.409446
+   },
+   {
+    "brand": "Realme",
+    "phones": 8,
+    "ridge_median_pct": 31.623499,
+    "boosting_median_pct": 16.209192
+   },
+   {
+    "brand": "Samsung",
+    "phones": 7,
+    "ridge_median_pct": 31.035683,
+    "boosting_median_pct": 3.393386
+   },
+   {
+    "brand": "OnePlus",
+    "phones": 6,
+    "ridge_median_pct": 13.52794,
+    "boosting_median_pct": 8.32735
+   },
+   {
+    "brand": "POCO",
+    "phones": 5,
+    "ridge_median_pct": 19.394962,
+    "boosting_median_pct": 24.280694
+   }
+  ],
+  "too_few": [
+   {
+    "brand": "Google",
+    "phones": 4
+   },
+   {
+    "brand": "Tecno",
+    "phones": 4
+   },
+   {
+    "brand": "Nokia",
+    "phones": 3
+   },
+   {
+    "brand": "Other",
+    "phones": 3
+   },
+   {
+    "brand": "Lenovo",
+    "phones": 2
+   }
+  ]
+ },
+ "largest_misses": [
+  {
+   "phone": "POCO X3 Pro 128GB",
+   "brand": "POCO",
+   "chip_group": "flagship_sd8_or_apple",
+   "actual": 18999.0,
+   "predicted": 38965.0,
+   "error_pct": 105.089742,
+   "ridge_error_pct": 84.183378
+  },
+  {
+   "phone": "Vivo T3 5G 128GB",
+   "brand": "Vivo",
+   "chip_group": "flagship_sd8_or_apple",
+   "actual": 34999.0,
+   "predicted": 67970.0,
+   "error_pct": 94.205549,
+   "ridge_error_pct": 47.198491
+  },
+  {
+   "phone": "Infinix Note 40X 5G",
+   "brand": "Infinix",
+   "chip_group": "dimensity_other",
+   "actual": 14999.0,
+   "predicted": 29092.0,
+   "error_pct": 93.959597,
+   "ridge_error_pct": 60.630709
+  },
+  {
+   "phone": "Infinix Hot 50 5G",
+   "brand": "Infinix",
+   "chip_group": "dimensity_other",
+   "actual": 10999.0,
+   "predicted": 17696.0,
+   "error_pct": 60.887353,
+   "ridge_error_pct": 83.653059
+  },
+  {
+   "phone": "Oppo Reno13 Pro 512GB",
+   "brand": "Oppo",
+   "chip_group": "dimensity_high",
+   "actual": 69999.0,
+   "predicted": 108564.0,
+   "error_pct": 55.093644,
+   "ridge_error_pct": -5.250075
+  },
+  {
+   "phone": "Vivo T2 Series 128GB",
+   "brand": "Vivo",
+   "chip_group": "snapdragon_other",
+   "actual": 15999.0,
+   "predicted": 23962.0,
+   "error_pct": 49.771861,
+   "ridge_error_pct": 123.20145
+  },
+  {
+   "phone": "Infinix Note 40 5G",
+   "brand": "Infinix",
+   "chip_group": "dimensity_high",
+   "actual": 19999.0,
+   "predicted": 29859.0,
+   "error_pct": 49.302465,
+   "ridge_error_pct": 64.99825
+  },
+  {
+   "phone": "Tecno Spark 30 Pro 256GB",
+   "brand": "Tecno",
+   "chip_group": "helio",
+   "actual": 19999.0,
+   "predicted": 29512.0,
+   "error_pct": 47.567378,
+   "ridge_error_pct": 44.732237
+  },
+  {
+   "phone": "Realme C65 256GB",
+   "brand": "Realme",
+   "chip_group": "snapdragon_other",
+   "actual": 15999.0,
+   "predicted": 23305.0,
+   "error_pct": 45.665354,
+   "ridge_error_pct": 62.322645
+  },
+  {
+   "phone": "Vivo T2 Series 256GB",
+   "brand": "Vivo",
+   "chip_group": "snapdragon_other",
+   "actual": 18999.0,
+   "predicted": 26011.0,
+   "error_pct": 36.907206,
+   "ridge_error_pct": 108.568872
+  }
+ ]
+}

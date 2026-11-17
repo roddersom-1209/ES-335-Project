@@ -1,0 +1,437 @@
+{
+ "model_a": [
+  {
+   "term": "chip: dimensity_high",
+   "change": "vs reference",
+   "pct": 25.416813,
+   "low_pct": 10.049528,
+   "high_pct": 42.929981,
+   "p_value": 0.00071473
+  },
+  {
+   "term": "chip: dimensity_other",
+   "change": "vs reference",
+   "pct": -12.437054,
+   "low_pct": -20.808418,
+   "high_pct": -3.18075,
+   "p_value": 0.00968133
+  },
+  {
+   "term": "chip: exynos",
+   "change": "vs reference",
+   "pct": 30.842987,
+   "low_pct": 14.310418,
+   "high_pct": 49.76664,
+   "p_value": 0.00010432
+  },
+  {
+   "term": "chip: flagship_sd8_or_apple",
+   "change": "vs reference",
+   "pct": 83.997612,
+   "low_pct": 65.07625,
+   "high_pct": 105.087779,
+   "p_value": 0.0
+  },
+  {
+   "term": "chip: helio",
+   "change": "vs reference",
+   "pct": -33.642534,
+   "low_pct": -40.939714,
+   "high_pct": -25.443753,
+   "p_value": 0.0
+  },
+  {
+   "term": "chip: kirin",
+   "change": "vs reference",
+   "pct": 99.83058,
+   "low_pct": 46.064357,
+   "high_pct": 173.388124,
+   "p_value": 1.709e-05
+  },
+  {
+   "term": "chip: tensor",
+   "change": "vs reference",
+   "pct": 75.046798,
+   "low_pct": 37.318678,
+   "high_pct": 123.140667,
+   "p_value": 7.24e-06
+  },
+  {
+   "term": "chip: unisoc",
+   "change": "vs reference",
+   "pct": -45.166136,
+   "low_pct": -54.436915,
+   "high_pct": -34.009019,
+   "p_value": 0.0
+  },
+  {
+   "term": "log2_ram",
+   "change": "doubling RAM",
+   "pct": 27.104074,
+   "low_pct": 16.455123,
+   "high_pct": 38.726791,
+   "p_value": 1.1e-07
+  },
+  {
+   "term": "log2_storage",
+   "change": "doubling storage",
+   "pct": 22.510654,
+   "low_pct": 16.599267,
+   "high_pct": 28.721738,
+   "p_value": 0.0
+  },
+  {
+   "term": "battery_mah",
+   "change": "+1000 mAh battery",
+   "pct": -31.276023,
+   "low_pct": -35.854521,
+   "high_pct": -26.370726,
+   "p_value": 0.0
+  },
+  {
+   "term": "screen_in",
+   "change": "+0.5 inch screen",
+   "pct": -9.84953,
+   "low_pct": -16.985622,
+   "high_pct": -2.100005,
+   "p_value": 0.01382235
+  },
+  {
+   "term": "main_back_mp",
+   "change": "+10 MP main camera",
+   "pct": -0.23563,
+   "low_pct": -1.772535,
+   "high_pct": 1.325321,
+   "p_value": 0.76544518
+  },
+  {
+   "term": "front_mp",
+   "change": "+10 MP front camera",
+   "pct": 1.049255,
+   "low_pct": -2.538159,
+   "high_pct": 4.768716,
+   "p_value": 0.57079184
+  },
+  {
+   "term": "n_back_cameras",
+   "change": "+1 back camera",
+   "pct": -0.804293,
+   "low_pct": -4.765652,
+   "high_pct": 3.321841,
+   "p_value": 0.69725128
+  },
+  {
+   "term": "weight_g",
+   "change": "+10 g weight",
+   "pct": 11.968791,
+   "low_pct": 8.886179,
+   "high_pct": 15.138672,
+   "p_value": 0.0
+  },
+  {
+   "term": "year",
+   "change": "+1 year newer",
+   "pct": 7.174452,
+   "low_pct": 4.738579,
+   "high_pct": 9.666976,
+   "p_value": 1e-08
+  }
+ ],
+ "model_b": [
+  {
+   "term": "chip: dimensity_high",
+   "change": "vs reference",
+   "pct": 25.183366,
+   "low_pct": 12.188673,
+   "high_pct": 39.68322,
+   "p_value": 6.507e-05
+  },
+  {
+   "term": "chip: dimensity_other",
+   "change": "vs reference",
+   "pct": -10.957974,
+   "low_pct": -18.137668,
+   "high_pct": -3.148588,
+   "p_value": 0.00690553
+  },
+  {
+   "term": "chip: exynos",
+   "change": "vs reference",
+   "pct": 10.064886,
+   "low_pct": -5.458113,
+   "high_pct": 28.136632,
+   "p_value": 0.2158196
+  },
+  {
+   "term": "chip: flagship_sd8_or_apple",
+   "change": "vs reference",
+   "pct": 58.823036,
+   "low_pct": 43.778886,
+   "high_pct": 75.441316,
+   "p_value": 0.0
+  },
+  {
+   "term": "chip: helio",
+   "change": "vs reference",
+   "pct": -23.651715,
+   "low_pct": -31.289674,
+   "high_pct": -15.164707,
+   "p_value": 6.8e-07
+  },
+  {
+   "term": "chip: kirin",
+   "change": "vs reference",
+   "pct": -20.249417,
+   "low_pct": -45.127943,
+   "high_pct": 15.908822,
+   "p_value": 0.23505042
+  },
+  {
+   "term": "chip: tensor",
+   "change": "vs reference",
+   "pct": 0.252367,
+   "low_pct": -25.668519,
+   "high_pct": 35.212387,
+   "p_value": 0.98680075
+  },
+  {
+   "term": "chip: unisoc",
+   "change": "vs reference",
+   "pct": -33.113914,
+   "low_pct": -43.245219,
+   "high_pct": -21.174068,
+   "p_value": 1.97e-06
+  },
+  {
+   "term": "brand: Apple",
+   "change": "vs reference",
+   "pct": 72.527764,
+   "low_pct": 47.547176,
+   "high_pct": 101.737709,
+   "p_value": 0.0
+  },
+  {
+   "term": "brand: Google",
+   "change": "vs reference",
+   "pct": 45.663778,
+   "low_pct": 11.043829,
+   "high_pct": 91.077132,
+   "p_value": 0.00668802
+  },
+  {
+   "term": "brand: Infinix",
+   "change": "vs reference",
+   "pct": -48.639067,
+   "low_pct": -57.304199,
+   "high_pct": -38.215342,
+   "p_value": 0.0
+  },
+  {
+   "term": "brand: Lenovo",
+   "change": "vs reference",
+   "pct": -42.965761,
+   "low_pct": -53.672732,
+   "high_pct": -29.784238,
+   "p_value": 1.7e-07
+  },
+  {
+   "term": "brand: Motorola",
+   "change": "vs reference",
+   "pct": -30.849816,
+   "low_pct": -40.772051,
+   "high_pct": -19.265346,
+   "p_value": 3.68e-06
+  },
+  {
+   "term": "brand: Nokia",
+   "change": "vs reference",
+   "pct": -27.539719,
+   "low_pct": -44.469293,
+   "high_pct": -5.448846,
+   "p_value": 0.01775756
+  },
+  {
+   "term": "brand: OnePlus",
+   "change": "vs reference",
+   "pct": -34.326456,
+   "low_pct": -43.114999,
+   "high_pct": -24.180112,
+   "p_value": 2e-08
+  },
+  {
+   "term": "brand: Oppo",
+   "change": "vs reference",
+   "pct": -19.142197,
+   "low_pct": -30.145818,
+   "high_pct": -6.405256,
+   "p_value": 0.00449501
+  },
+  {
+   "term": "brand: Other",
+   "change": "vs reference",
+   "pct": 78.187983,
+   "low_pct": 35.74061,
+   "high_pct": 133.90905,
+   "p_value": 3.552e-05
+  },
+  {
+   "term": "brand: POCO",
+   "change": "vs reference",
+   "pct": -41.345629,
+   "low_pct": -50.643816,
+   "high_pct": -30.29576,
+   "p_value": 0.0
+  },
+  {
+   "term": "brand: Realme",
+   "change": "vs reference",
+   "pct": -40.784361,
+   "low_pct": -49.305759,
+   "high_pct": -30.830569,
+   "p_value": 0.0
+  },
+  {
+   "term": "brand: Tecno",
+   "change": "vs reference",
+   "pct": -29.119871,
+   "low_pct": -40.819761,
+   "high_pct": -15.10692,
+   "p_value": 0.00019804
+  },
+  {
+   "term": "brand: Vivo",
+   "change": "vs reference",
+   "pct": -20.218188,
+   "low_pct": -32.443837,
+   "high_pct": -5.780061,
+   "p_value": 0.00787385
+  },
+  {
+   "term": "brand: Xiaomi",
+   "change": "vs reference",
+   "pct": -9.52305,
+   "low_pct": -26.539601,
+   "high_pct": 11.435258,
+   "p_value": 0.34581195
+  },
+  {
+   "term": "log2_ram",
+   "change": "doubling RAM",
+   "pct": 48.409251,
+   "low_pct": 36.530647,
+   "high_pct": 61.321332,
+   "p_value": 0.0
+  },
+  {
+   "term": "log2_storage",
+   "change": "doubling storage",
+   "pct": 10.043422,
+   "low_pct": 5.313937,
+   "high_pct": 14.9853,
+   "p_value": 2.223e-05
+  },
+  {
+   "term": "battery_mah",
+   "change": "+1000 mAh battery",
+   "pct": -19.121388,
+   "low_pct": -24.103402,
+   "high_pct": -13.812343,
+   "p_value": 0.0
+  },
+  {
+   "term": "screen_in",
+   "change": "+0.5 inch screen",
+   "pct": 10.455095,
+   "low_pct": 2.556851,
+   "high_pct": 18.961608,
+   "p_value": 0.00871263
+  },
+  {
+   "term": "main_back_mp",
+   "change": "+10 MP main camera",
+   "pct": -0.030779,
+   "low_pct": -1.319693,
+   "high_pct": 1.27497,
+   "p_value": 0.96284882
+  },
+  {
+   "term": "front_mp",
+   "change": "+10 MP front camera",
+   "pct": 4.251104,
+   "low_pct": 0.726786,
+   "high_pct": 7.898733,
+   "p_value": 0.01775634
+  },
+  {
+   "term": "n_back_cameras",
+   "change": "+1 back camera",
+   "pct": -5.615854,
+   "low_pct": -11.116396,
+   "high_pct": 0.225088,
+   "p_value": 0.05918352
+  },
+  {
+   "term": "weight_g",
+   "change": "+10 g weight",
+   "pct": 5.72029,
+   "low_pct": 3.040888,
+   "high_pct": 8.469365,
+   "p_value": 2.455e-05
+  },
+  {
+   "term": "year",
+   "change": "+1 year newer",
+   "pct": 3.458707,
+   "low_pct": 1.122045,
+   "high_pct": 5.849362,
+   "p_value": 0.00360455
+  }
+ ],
+ "vif": [
+  {
+   "feature": "log2_ram",
+   "vif_numeric_only": 2.86,
+   "vif_model_b": 4.8
+  },
+  {
+   "feature": "n_back_cameras",
+   "vif_numeric_only": 1.17,
+   "vif_model_b": 4.34
+  },
+  {
+   "feature": "screen_in",
+   "vif_numeric_only": 2.88,
+   "vif_model_b": 4.26
+  },
+  {
+   "feature": "weight_g",
+   "vif_numeric_only": 2.22,
+   "vif_model_b": 3.95
+  },
+  {
+   "feature": "battery_mah",
+   "vif_numeric_only": 2.26,
+   "vif_model_b": 3.69
+  },
+  {
+   "feature": "year",
+   "vif_numeric_only": 2.03,
+   "vif_model_b": 3.31
+  },
+  {
+   "feature": "log2_storage",
+   "vif_numeric_only": 2.21,
+   "vif_model_b": 2.8
+  },
+  {
+   "feature": "front_mp",
+   "vif_numeric_only": 1.69,
+   "vif_model_b": 2.76
+  },
+  {
+   "feature": "main_back_mp",
+   "vif_numeric_only": 1.75,
+   "vif_model_b": 2.03
+  }
+ ]
+}

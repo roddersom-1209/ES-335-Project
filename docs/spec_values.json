@@ -1,0 +1,44 @@
+[
+ {
+  "change": "doubling RAM",
+  "pct": 48.9,
+  "low_pct": 33.6,
+  "high_pct": 63.6,
+  "note": "How the memory effect splits between RAM and storage is unstable across models. Use the combined number."
+ },
+ {
+  "change": "doubling storage",
+  "pct": 11.0,
+  "low_pct": 7.0,
+  "high_pct": 14.6,
+  "note": "How the memory effect splits between RAM and storage is unstable across models. Use the combined number."
+ },
+ {
+  "change": "doubling BOTH RAM and storage",
+  "pct": 65.3,
+  "low_pct": 50.4,
+  "high_pct": 78.6,
+  "note": "The robust memory number."
+ },
+ {
+  "change": "+1000 mAh battery",
+  "pct": -20.2,
+  "low_pct": -28.8,
+  "high_pct": -11.9,
+  "note": "Negative because, at equal specs, big batteries mark budget phones. An association, not a cause."
+ },
+ {
+  "change": "+10 MP main camera",
+  "pct": -0.0,
+  "low_pct": -2.7,
+  "high_pct": 2.0,
+  "note": ""
+ },
+ {
+  "change": "+1 year newer",
+  "pct": 3.9,
+  "low_pct": 0.9,
+  "high_pct": 7.4,
+  "note": ""
+ }
+]

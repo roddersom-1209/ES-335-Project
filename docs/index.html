@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smartphone Launch Prices in India</title>
+  <meta name="description" content="How well can a smartphone's Indian launch price be predicted from its specs, chip and brand, and how much is brand? An ES 335 course project.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Serif:wght@600;700&display=swap">
+  <link rel="stylesheet" href="style.css?v=20261117c">
+  <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@4.1.1/plotly.min.js" defer></script>
+  <script src="app.js?v=20261117c" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
+  <div class="wrap header-text">
+    <p class="kicker">ES 335 · Machine Learning course project</p>
+    <h1>What sets a smartphone's price in India: specs or brand?</h1>
+    <p class="lede">We predict the Indian launch price of <span data-v="results:data.phones" data-f="int"></span> phones from their listed specs, chip and brand, and measure how much extra each brand charges for the same hardware.</p>
+  </div>
+  <nav class="site-nav" aria-label="Sections">
+    <a href="#question">Question</a><a href="#data">Data</a><a href="#drivers">Drivers</a><a href="#method">Method</a><a href="#results">Results</a><a href="#ols">OLS models</a><a href="#testing">Testing</a><a href="#explorer">Value explorer</a><a href="#estimator">Estimator</a><a href="#premiums">Brand premiums</a><a href="#conclusions">Conclusions</a><a href="#limitations">Limitations</a>
+  </nav>
+</header>
+
+<main class="wrap">
+
+<p id="load-error" class="note warn" hidden>The data files could not be loaded. If you opened this page as a file, serve the <code>docs/</code> folder with a local web server instead (see "How to reproduce").</p>
+
+<!-- 1 ------------------------------------------------------------------ -->
+<section id="question">
+  <h2>1. The question</h2>
+  <p><strong>How accurately can a smartphone's Indian launch price be predicted from its listed specifications, chip and brand, and how much of the price is explained by brand rather than hardware?</strong></p>
+  <ul>
+    <li><strong>What we predict:</strong> the launch price in India, in rupees (₹). The models work with the natural log of the price, because spec effects act as percentages and prices are right-skewed.</li>
+    <li><strong>One row</strong> is one phone variant: a specific RAM/storage configuration of a model (iPhone 16 128GB and iPhone 16 256GB are two rows).</li>
+    <li><strong>When a prediction is made:</strong> when a phone's specs, chip, brand and launch year are known but its Indian price is not, for example at announcement, or when a buyer judges a phone from its listed specs. No input is derived from the price or from other countries' prices.</li>
+  </ul>
+  <p><strong>What we can and cannot claim.</strong> Predictions describe typical launch pricing in this dataset, not a phone's "true worth" or today's street price. Coefficients are associations, not causes. Results apply to the brands, launch years (<span data-v="results:data.year_min" data-f="raw"></span>–<span data-v="results:data.year_max" data-f="raw"></span>) and price range covered.<br>Brands with few phones are uncertain.<br>Quality factors not in the data (camera quality, display, materials, software updates) are outside the model.</p>
+</section>
+
+<!-- 2 ------------------------------------------------------------------ -->
+<section id="data">
+  <h2>2. The data</h2>
+  <p><strong>Source:</strong> Abdul Malik, <em>Mobiles Dataset (2025)</em>, Kaggle, Apache 2.0 licence, version 1 (updated 18 Feb 2025).
+    <a href="https://www.kaggle.com/datasets/abdulmalik1518/mobiles-dataset-2025">kaggle.com/datasets/abdulmalik1518/mobiles-dataset-2025</a>,
+    DOI <a href="https://doi.org/10.34740/kaggle/dsv/10780255">10.34740/kaggle/dsv/10780255</a>.
+    The author collected the specs and launch prices from various websites.<br>No per-row source is given.</p>
+  <p>The raw file has <span data-v="results:data.raw_rows" data-f="int"></span> rows. Each row is a phone variant with its specs and launch prices in five countries. We use only the <strong>India price</strong> as the target.<br>The other countries' prices are never used as inputs, because they would give the answer away.</p>
+
+  <h3>Key variables (after cleaning, training set)</h3>
+  <div class="table-wrap"><table id="variables-table"><thead><tr><th>Variable</th><th>Meaning</th><th class="num">Range</th><th class="num">Median</th></tr></thead><tbody></tbody></table></div>
+  <p class="small">Plus <strong>brand</strong> (<span data-v="results:data.brands" data-f="int"></span> brands, with Sony and Huawei grouped as "Other") and <strong>chip group</strong> (<span data-v="results:data.chip_groups" data-f="int"></span> groups, built from the raw processor names).</p>
+
+  <h3>Cleaning: rows dropped at each step</h3>
+  <div class="table-wrap"><table id="cleaning-table"><thead><tr><th>Step</th><th class="num">Rows left</th><th class="num">Dropped</th><th>Why</th></tr></thead><tbody></tbody></table></div>
+  <p><strong>Storage recovered by web lookup.</strong> Storage size is written only inside the model name. For phones without it we looked up the variants by hand (GSMArena for variants, Indian launch articles for the price) and added a phone back only if an official India launch was confirmed: <span data-v="results:data.web_lookup_phones" data-f="int"></span> Infinix phones, with their verified India launch prices. All results were also checked without them.</p>
+  <p><strong>Are the India prices real?</strong> Every phone has an "India price", even phones only sold in China. We flagged <span data-v="results:data.flagged_phones" data-f="int"></span> of the kept phones as doubtful (Huawei phones launched after 2019, which were not officially sold in India, and phones whose India/China price ratio is unusual for their brand). They stay in the data.<br>Removing them from the test set barely changes the scores.</p>
+</section>
+
+<!-- 3 ------------------------------------------------------------------ -->
+<section id="drivers">
+  <h2>3. What drives price?</h2>
+  <p>Prices are right-skewed: most phones are cheap and a few are very expensive (median <span data-v="results:data.price_median" data-f="inr"></span>, range <span data-v="results:data.price_min" data-f="inr"></span> to <span data-v="results:data.price_max" data-f="inr"></span>).</p>
+  <div class="chart" data-figure="figures/explore_price_hist.json"></div>
+  <p>Storage and RAM are the specs most strongly related to (log) price. A big battery goes with <em>lower</em> prices: budget phones have the largest batteries.</p>
+  <div class="chart" data-figure="figures/explore_correlations.json"></div>
+  <div class="grid-2">
+    <div class="chart" data-figure="figures/explore_price_by_brand.json"></div>
+    <div class="chart" data-figure="figures/explore_price_by_chip.json"></div>
+  </div>
+  <p class="small">Correlations and box plots use all phones, as in our exploration notebook. They describe the data.<br>They do not hold other specs fixed. The models below do.</p>
+
+  <h3>Principal component analysis (PCA): how much do the specs overlap?</h3>
+  <p><strong>PCA</strong> finds new axes, called <strong>principal components</strong>, that are combinations of the standardised specs.<br>
+    The first component (PC1) is the direction in which the phones differ the most, the second (PC2) the most remaining variation at right angles to it, and so on.<br>
+    Each component's <strong>loadings</strong> say how much each spec contributes to it. PCA looks only at the specs, never at the price, and uses the training phones only.</p>
+  <div class="chart" data-figure="figures/pca_variance.json"></div>
+  <div class="table-wrap"><table id="pca-table"><thead><tr><th>Spec</th><th class="num">PC1 loading</th><th class="num">PC2 loading</th><th class="num">PC3 loading</th></tr></thead><tbody></tbody></table></div>
+  <p id="pca-text"></p>
+</section>
+
+<!-- 4 ------------------------------------------------------------------ -->
+<section id="method">
+  <h2>4. Method in simple words</h2>
+  <ul>
+    <li><strong>Log price.</strong> A spec adds a percentage, not a fixed number of rupees, and the log turns percentages into plain additions that a linear model can fit. It also tames the few very expensive phones.</li>
+    <li><strong>Split by phone model.</strong> Storage variants of the same phone (128 GB, 256 GB, …) are almost identical. All variants of a model go to the same side of every split, so a model is always tested on phones it has truly never seen. <span data-v="results:method.test_share" data-f="share"></span> of the phone models (<span data-v="results:data.test_phones" data-f="int"></span> phones) were locked away as the test set.</li>
+    <li><strong>Baselines.</strong> "Always predict the average price" and "predict the brand's average price" show what a model must beat.</li>
+    <li><strong>Linear models.</strong> Ordinary least squares (OLS) gives one coefficient per spec and brand.<br>Model A (specs + chip, no brand) estimates a phone's <em>hardware value</em>. Ridge and lasso add a penalty that keeps coefficients stable when features overlap (RAM and storage rise together).</li>
+    <li><strong>Trees.</strong> A decision tree asks yes/no questions ("flagship chip?", "more than 6 GB RAM?"). A random forest averages hundreds of trees.<br>Gradient boosting adds small trees one at a time, each fixing the remaining errors.<br>AdaBoost also adds trees one at a time, but it gives more weight to the phones it predicted badly, so each new tree concentrates on them.<br>Trees can find thresholds and interactions that a linear model cannot.</li>
+    <li><strong>Tuning and testing.</strong> Every setting was chosen by <span data-v="results:method.cv_folds" data-f="int"></span>-fold cross-validation on the training set, grouped by phone model. The test set was used once, at the end. Uncertainty comes from <span data-v="results:method.bootstrap_resamples" data-f="int"></span> bootstrap resamples of whole phone models.</li>
+  </ul>
+
+  <h3>Preprocessing choices, and why</h3>
+  <ul>
+    <li><strong>Target: the natural log of the price.</strong> Spec effects act as percentages, and a few very expensive phones would otherwise dominate the errors.</li>
+    <li><strong>RAM and storage on a log₂ scale.</strong> One unit then means "doubling".<br>Going from 4 to 8 GB is treated like going from 8 to 16 GB, which matches how prices step up between variants.</li>
+    <li><strong>Chip groups.</strong> The <span data-v="results:data.processor_names" data-f="int"></span> different processor names were grouped into <span data-v="results:data.chip_groups" data-f="int"></span> chip groups by maker and tier (for example flagship Snapdragon 8, other Snapdragon, Dimensity 8000/9000, Helio).<br>Too many categories would leave most of them with only a phone or two.<br>Apple's A-series chips are grouped with flagship Snapdragon chips, because only Apple uses them, so "Apple chip" and "Apple brand" would otherwise be the same column (see Limitations).</li>
+    <li><strong>Small brands grouped as "Other".</strong> Brands with very few phones after cleaning (Sony and Huawei) form one group, so no brand estimate rests on a handful of phones.</li>
+    <li><strong>Categories as 0/1 columns (one-hot encoding).</strong> Brand and chip group become one column per category.<br>OLS drops one reference category (Samsung, other Snapdragon) because the columns of one category always add up to 1. Ridge and lasso keep all of them, because their penalty makes the solution unique.</li>
+    <li><strong>Standardised specs for ridge, lasso and elastic net.</strong> Each spec is rescaled to mean 0 and standard deviation 1, so that the penalty treats a spec measured in mAh the same as one measured in GB.<br>Tree models use the raw values, because a threshold works the same in any unit.</li>
+    <li><strong>No leakage.</strong> All encoding and scaling sit inside scikit-learn pipelines, so they are fitted on the training part of each fold only.<br>The other countries' prices in the file are never used as inputs, because they would give the answer away.</li>
+    <li><strong>Rows.</strong> Tablets, exact duplicates and phones without a storage size were removed (see the cleaning table).<br>Phones whose India launch was confirmed were added back from a manual web lookup, and phones with a doubtful India price were flagged but kept.</li>
+  </ul>
+</section>
+
+<!-- 5 ------------------------------------------------------------------ -->
+<section id="results">
+  <h2>5. Results on unseen phones</h2>
+  <p>Test-set scores (<span data-v="results:data.test_phones" data-f="int"></span> phones the models never saw), sorted by median % error. Brackets are 95% bootstrap intervals.</p>
+  <div class="table-wrap"><table id="scores-table"><thead><tr><th>Model</th><th class="num">R² (log price)</th><th class="num">Median % error</th><th class="num">MAE</th><th class="num">CV R²</th><th class="num">CV median %</th></tr></thead><tbody></tbody></table></div>
+  <p class="small">R² = share of the variation in log price that the model explains (1 is perfect). Median % error = half of the phones are priced closer than this. MAE = mean absolute error in rupees. CV = grouped cross-validation on the training set.</p>
+  <div class="chart" data-figure="figures/model_comparison.json"></div>
+  <p id="results-summary"></p>
+
+  <h3>Predicted vs actual price</h3>
+  <p>Each dot is a test phone, coloured by brand. On the solid line the prediction is exact.<br>Between the dashed lines it is within ±20%.</p>
+  <div class="chart tall" data-figure="figures/pred_vs_actual.json"></div>
+  <p id="within-summary"></p>
+
+  <h3>Error by price band</h3>
+  <div class="chart" data-figure="figures/error_by_band.json"></div>
+  <p>Rupee errors grow with price (the same 10% is more rupees on an expensive phone), so we compare models in percentages.</p>
+
+  <h3>Where does the model fail?</h3>
+  <p><strong>By brand.</strong> Median % error on the test phones, for brands with at least <span data-v="results:error_by_brand.min_phones" data-f="int"></span> test phones.<br>With fewer phones one odd phone would decide the result.</p>
+  <div class="table-wrap"><table id="brand-error-table"><thead><tr><th>Brand</th><th class="num">Test phones</th><th class="num">Ridge median % error</th><th class="num">Gradient boosting median % error</th></tr></thead><tbody></tbody></table></div>
+  <p id="brand-error-note" class="small"></p>
+  <p><strong>The largest misses</strong> of <span data-v="results:best_model" data-f="raw"></span> on the test set. A positive error means the phone was predicted too expensive.</p>
+  <div class="table-wrap"><table id="misses-table"><thead><tr><th>Phone</th><th>Chip group</th><th class="num">Actual price</th><th class="num">Predicted</th><th class="num">Error</th><th class="num">Ridge error</th></tr></thead><tbody></tbody></table></div>
+  <p><strong>Patterns in the failures.</strong></p>
+  <ul>
+    <li><strong>Value lines are predicted too expensive.</strong> Almost all large misses are cheap or mid-priced phones from value-focused brands and product lines (POCO, Vivo's T series, Realme's C series, Infinix, Tecno).<br>They offer a lot of RAM and storage for a low price, and the model only knows the brand, not the product line.</li>
+    <li><strong>Our chip groups misjudge some phones.</strong> Older flagship-class chips (Snapdragon 860 and 870) in later mid-range phones count as flagship chips, so those phones are predicted far too expensive.</li>
+    <li><strong>Some prices may be wrong.</strong> Several of the largest misses are Infinix phones whose prices came from our web lookup, and a few phones have a doubtful India price (see Section 2).</li>
+    <li><strong>Ridge fails more widely.</strong> It gives each brand one premium for all its phones, so it misprices brands that sell everything from budget phones to flagships, most of all on phones below ₹30,000 (see the price-band chart above).</li>
+  </ul>
+</section>
+
+<!-- 6 ------------------------------------------------------------------ -->
+<section id="ols">
+  <h2>6. Inside the linear models (OLS)</h2>
+  <p><strong>Ordinary least squares (OLS)</strong> fits one straight-line effect per feature on log price, by making the squared prediction errors as small as possible. We fit two versions:</p>
+  <ul>
+    <li><strong>Model A: specs + chip, no brand.</strong> It answers "what does a typical phone with this hardware cost?", the phone's <em>hardware value</em>.</li>
+    <li><strong>Model B: specs + chip + brand.</strong> The same plus one effect per brand (measured against Samsung).</li>
+  </ul>
+  <p>Because the target is log price, each coefficient is a <strong>percentage effect</strong>: the change in price for the stated change in one feature, with every other feature held fixed. Brackets are 95% confidence intervals.<br>The <em>p-value</em> is the probability of an effect at least this large if the true effect were zero (below 0.05 = clearly different from zero).</p>
+  <div class="table-wrap"><table id="ols-scores"><thead><tr><th>Model</th><th class="num">CV R²</th><th class="num">CV median %</th><th class="num">Test R²</th><th class="num">Test median %</th></tr></thead><tbody></tbody></table></div>
+
+  <h3>Spec effects: Model A vs Model B</h3>
+  <div class="table-wrap"><table id="ols-specs"><thead><tr><th>Change (all else equal)</th><th class="num">Model A</th><th class="num">Model B</th><th class="num">P-value (Model B)</th></tr></thead><tbody></tbody></table></div>
+  <p id="ols-specs-text"></p>
+
+  <h3>Chip groups (vs other Snapdragon chips)</h3>
+  <div class="table-wrap"><table id="ols-chips"><thead><tr><th>Chip group</th><th class="num">Model A</th><th class="num">Model B</th></tr></thead><tbody></tbody></table></div>
+  <p class="small">Apple's A-series chips are grouped with flagship Snapdragon 8 chips. Otherwise the "Apple chip" and "Apple brand" columns would be identical and OLS could not separate them (the split between the two would be arbitrary). Tensor and Kirin chips are used by one brand each, so in Model B part of their effect moves to the Google and Huawei brands.</p>
+
+  <h3>Brand effects in Model B (vs Samsung, same specs)</h3>
+  <div class="table-wrap"><table id="ols-brands"><thead><tr><th>Brand</th><th class="num">Premium vs Samsung</th><th class="num">95% interval</th><th class="num">P-value</th></tr></thead><tbody></tbody></table></div>
+
+  <h3>How much do the features overlap? (VIF)</h3>
+  <p>The <strong>variance inflation factor (VIF)</strong> says how much a feature can be predicted from the others: VIF = 1 means no overlap.<br>A VIF above 5–10 is the usual warning level.<br> Overlap makes single coefficients unstable (it is why the RAM/storage split moves between Model A and B), which is what ridge regression is designed to handle.</p>
+  <div class="table-wrap"><table id="ols-vif"><thead><tr><th>Feature</th><th class="num">VIF (specs only)</th><th class="num">VIF (in Model B)</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<!-- 7 ------------------------------------------------------------------ -->
+<section id="testing">
+  <h2>7. How we tested, and how reliable the numbers are</h2>
+  <ol>
+    <li><strong>Lock a test set first.</strong> <span data-v="results:method.test_share" data-f="share"></span> of the phone models (<span data-v="results:data.test_phones" data-f="int"></span> phones from <span data-v="results:data.test_models" data-f="int"></span> models) were set aside before any modelling.<br>All storage variants of a model stay together.</li>
+    <li><strong>Choose every setting with cross-validation (CV)</strong> on the <span data-v="results:data.train_phones" data-f="int"></span> training phones: split them into <span data-v="results:method.cv_folds" data-f="int"></span> groups by phone model, fit on 4, score on the 5th, rotate, and average.</li>
+    <li><strong>Use the test set once</strong>, at the end, with the chosen settings refitted on all training phones.</li>
+    <li><strong>Measure the uncertainty</strong> with <span data-v="results:method.bootstrap_resamples" data-f="int"></span> bootstrap resamples of the test phone models (whole models drawn with replacement).</li>
+  </ol>
+
+  <h3>Cross-validation on the training set (mean ± standard deviation over the folds)</h3>
+  <div class="table-wrap"><table id="cv-table"><thead><tr><th>Model</th><th class="num">R² (log price)</th><th class="num">Median % error</th><th class="num">MAE</th></tr></thead><tbody></tbody></table></div>
+
+  <h3>Are the differences between models real? (paired bootstrap on the test set)</h3>
+  <p>Both models are scored on the same <span data-v="results:method.bootstrap_resamples" data-f="int"></span> resampled test sets, and we look at the difference each time. If the 95% interval of the difference excludes 0, the difference is clearly real.</p>
+  <div class="table-wrap"><table id="paired-table"><thead><tr><th>Comparison</th><th class="num">Difference in median % error</th><th class="num">95% interval</th><th class="num">First model better in</th><th class="num">Difference in R²</th></tr></thead><tbody></tbody></table></div>
+  <p id="paired-text"></p>
+
+  <h3>Robustness: phones with a doubtful India price removed</h3>
+  <div class="table-wrap"><table id="robust-table"><thead><tr><th>Model</th><th class="num">All test phones</th><th class="num">Doubtful prices removed</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<!-- 8 ------------------------------------------------------------------ -->
+<section id="explorer">
+  <h2>8. Value explorer</h2>
+  <p>Pick a real phone to compare its actual launch price with what its specs and brand suggest. Every phone is judged by a model that did not see it while fitting.</p>
+  <label class="search">Phone <input id="phone-search" list="phone-list" placeholder="type a phone name, e.g. Galaxy S24" autocomplete="off"></label>
+  <datalist id="phone-list"></datalist>
+  <div id="phone-card" class="card" hidden></div>
+
+  <h3>Where does the model work, and where does it fail?</h3>
+  <p>Filter the predicted-vs-actual chart by brand or price band. The phone you picked above is circled.</p>
+  <div class="filters" id="pva-filters">
+    <label>Model <select id="pva-model"><option value="boosting_price">Gradient boosting</option><option value="brand_price">Ridge</option></select></label>
+    <label>Brand <select id="pva-brand"><option value="">all brands</option></select></label>
+    <label>Price band <select id="pva-band"><option value="">all prices</option></select></label>
+    <label>Phones <select id="pva-set"><option value="test">test set</option><option value="all">all (out-of-sample)</option></select></label>
+  </div>
+  <div class="chart tall" id="pva-chart"></div>
+  <p id="pva-summary" class="small"></p>
+</section>
+
+<!-- 7 ------------------------------------------------------------------ -->
+<section id="estimator">
+  <h2>9. Price estimator</h2>
+  <p>Enter specs to see the <strong>hardware value</strong> (typical price for these specs, brand ignored), the <strong>typical price for the chosen brand</strong>, and the difference. <span id="estimator-accuracy"></span></p>
+  <form id="estimator-form" class="estimator" autocomplete="off"></form>
+  <div id="estimator-warning" class="note warn" hidden></div>
+  <div id="estimator-output" class="card"></div>
+</section>
+
+<!-- 8 ------------------------------------------------------------------ -->
+<section id="premiums">
+  <h2>10. Brand premiums and what specs are worth</h2>
+  <p>How much more (or less) each brand charges than an average brand <strong>for the same specs and chip group</strong> (ridge, all <span data-v="results:data.train_phones" data-f="int"></span> training phones, 95% bootstrap intervals).<br>Grey bars mark brands that cannot be told apart from an average brand.</p>
+  <div class="chart tall" data-figure="figures/brand_premiums.json"></div>
+  <ul id="premium-caveats" class="caveats"></ul>
+  <p id="premium-accuracy" class="small"></p>
+  <h3>What a spec is worth (all else equal)</h3>
+  <div class="table-wrap"><table id="spec-table"><thead><tr><th>Change</th><th class="num">Price change</th><th class="num">95% interval</th><th>Note</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<!-- 9 ------------------------------------------------------------------ -->
+<section id="conclusions">
+  <h2>11. Conclusions</h2>
+  <div id="conclusions-text"></div>
+</section>
+
+<!-- 10 ----------------------------------------------------------------- -->
+<section id="limitations">
+  <h2>12. Limitations</h2>
+  <ul>
+    <li><strong>One price source.</strong> All launch prices come from one Kaggle dataset that does not document its sources. We verified prices only for the <span data-v="results:data.web_lookup_phones" data-f="int"></span> web-lookup phones, and <span data-v="results:data.flagged_phones" data-f="int"></span> phones have a doubtful India price.</li>
+    <li><strong>Missing quality factors.</strong> No camera quality (only megapixels), display type, materials, foldable flag, water resistance or software-update policy. Part of a "brand premium" is really these.</li>
+    <li><strong>Dropped phones.</strong> Phones without storage in their name were dropped unless an India launch could be confirmed, so Honor and Huawei are barely represented.</li>
+    <li><strong>How Apple's premium is measured (the Apple-chip assumption).</strong> Only Apple uses Apple's A-series chips, so in our data "has an Apple chip" and "is an Apple phone" are always the same thing.<br>
+      A model cannot separate two columns that are always identical, so it could not tell how much of an iPhone's price comes from its chip and how much from the Apple brand.<br>
+      To solve this, we put Apple's chips in the same group as Qualcomm's top chips (the Snapdragon 8 series) and treat both as equally valuable "flagship" chips.<br>
+      So Apple's premium means: how much more an iPhone costs than a phone from an average brand with a flagship chip and the same RAM, storage, cameras, battery and other specs.<br>
+      If Apple's chips are really worth more than a flagship Snapdragon, part of what we call Apple's brand premium is actually the value of its chip, so the premium is somewhat too high (and too low if they are worth less).</li>
+    <li><strong>Brand-specific chips.</strong> Tensor (Google) and Kirin (Huawei) are each used by one brand, so those premiums partly include chip value.</li>
+    <li><strong>Coarse chip groups.</strong> A chip family can mix flagship and mid-range chips, and older flagship chips count as flagship.<br>This causes some of the largest errors.</li>
+    <li><strong>Small brands and "Other"</strong> have wide intervals.</li>
+    <li><strong>Launch price ≠ today's price.</strong> Discounts and street prices are not reflected.</li>
+    <li><strong>Associations, not causes.</strong> A coefficient compares phones that differ in one feature.<br>It does not say what a maker would charge if it changed that feature.</li>
+    <li><strong>Small test set</strong> (<span data-v="results:data.test_phones" data-f="int"></span> phones), so test scores have wide intervals.</li>
+  </ul>
+
+  <h2 id="reproduce">How to reproduce</h2>
+  <ol>
+    <li>Get the code: <span id="repo-link"></span>, and the dataset from Kaggle (link above) into <code>data/raw/</code>.</li>
+    <li>Install the Python packages: <code>pip install -r requirements.txt</code>.</li>
+    <li>Run the notebooks in order: <code>01_clean</code>, then <code>python src/split.py</code> (the fixed split and folds), then <code>02_explore</code> → <code>03_linear_simple</code> → <code>04_regularised_simple</code> → <code>05_trees</code> → <code>06_evaluate</code> → <code>07_brand_value</code>.</li>
+    <li>Export the website data with <code>python src/export_site.py</code> and check it with <code>python tests/test_export.py</code>.</li>
+    <li>View the site locally: <code>python -m http.server --directory docs</code>, then open <code>http://localhost:8000</code>.</li>
+  </ol>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Predictions reflect typical launch pricing in this dataset, not a phone's true worth.</p>
+    <p class="small">Data: Abdul Malik, Mobiles Dataset (2025), Kaggle (Apache 2.0). ES 335 course project.</p>
+    <p class="makers"><strong>Project by</strong><br>Rudra Mishra - 25110276<br>Rhinkar Rahul Shah - 25110270</p>
+  </div>
+</footer>
+</body>
+</html>
