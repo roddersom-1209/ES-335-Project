@@ -1,0 +1,703 @@
+row,model_group,split,fold
+0,apple | iphone 16,test,0
+1,apple | iphone 16,test,0
+2,apple | iphone 16,test,0
+3,apple | iphone 16 plus,train,2
+4,apple | iphone 16 plus,train,2
+5,apple | iphone 16 plus,train,2
+6,apple | iphone 16 pro,train,1
+7,apple | iphone 16 pro,train,1
+8,apple | iphone 16 pro,train,1
+9,apple | iphone 16 pro max,train,5
+10,apple | iphone 16 pro max,train,5
+11,apple | iphone 16 pro max,train,5
+12,apple | iphone 15,test,0
+13,apple | iphone 15,test,0
+14,apple | iphone 15,test,0
+15,apple | iphone 15 plus,train,4
+16,apple | iphone 15 plus,train,4
+17,apple | iphone 15 plus,train,4
+18,apple | iphone 15 pro,train,3
+19,apple | iphone 15 pro,train,3
+20,apple | iphone 15 pro,train,3
+21,apple | iphone 15 pro max,test,0
+22,apple | iphone 15 pro max,test,0
+23,apple | iphone 15 pro max,test,0
+24,apple | iphone 14,test,0
+25,apple | iphone 14,test,0
+26,apple | iphone 14,test,0
+27,apple | iphone 14 plus,train,2
+28,apple | iphone 14 plus,train,2
+29,apple | iphone 14 plus,train,2
+30,apple | iphone 14 pro,train,1
+31,apple | iphone 14 pro,train,1
+32,apple | iphone 14 pro,train,1
+33,apple | iphone 14 pro max,train,5
+34,apple | iphone 14 pro max,train,5
+35,apple | iphone 14 pro max,train,5
+36,apple | iphone 13 mini,train,4
+37,apple | iphone 13 mini,train,4
+38,apple | iphone 13 mini,train,4
+39,apple | iphone 13,train,5
+40,apple | iphone 13,train,5
+41,apple | iphone 13,train,5
+42,apple | iphone 13 pro,test,0
+43,apple | iphone 13 pro,test,0
+44,apple | iphone 13 pro,test,0
+45,apple | iphone 13 pro max,train,3
+46,apple | iphone 13 pro max,train,3
+47,apple | iphone 13 pro max,train,3
+48,apple | iphone 12 mini,train,3
+49,apple | iphone 12 mini,train,3
+50,apple | iphone 12 mini,train,3
+51,apple | iphone 12,train,4
+52,apple | iphone 12,train,4
+53,apple | iphone 12,train,4
+54,apple | iphone 12 pro,train,2
+55,apple | iphone 12 pro,train,2
+56,apple | iphone 12 pro,train,2
+57,apple | iphone 12 pro max,train,1
+58,apple | iphone 12 pro max,train,1
+59,apple | iphone 12 pro max,train,1
+60,apple | iphone 11,test,0
+61,apple | iphone 11,test,0
+62,apple | iphone 11,test,0
+63,apple | iphone 11 pro,train,1
+64,apple | iphone 11 pro,train,1
+65,apple | iphone 11 pro,train,1
+66,apple | iphone 11 pro max,train,5
+67,apple | iphone 11 pro max,train,5
+68,apple | iphone 11 pro max,train,5
+69,apple | iphone x,train,3
+70,apple | iphone x,train,3
+71,apple | iphone xs,test,0
+72,apple | iphone xs,test,0
+73,apple | iphone xs,test,0
+74,apple | iphone xs max,train,3
+75,apple | iphone xs max,train,3
+76,apple | iphone xs max,train,3
+77,apple | iphone xr,train,4
+78,apple | iphone xr,train,4
+79,apple | iphone xr,train,4
+80,samsung | galaxy s24 ultra,test,0
+81,samsung | galaxy s24 ultra,test,0
+82,samsung | galaxy s24+,train,5
+83,samsung | galaxy s24+,train,5
+84,samsung | galaxy s24,train,1
+85,samsung | galaxy s24,train,1
+86,samsung | galaxy s23 ultra,test,0
+87,samsung | galaxy s23 ultra,test,0
+88,samsung | galaxy s23+,train,2
+89,samsung | galaxy s23+,train,2
+90,samsung | galaxy s23,train,3
+91,samsung | galaxy s23,train,3
+92,samsung | galaxy s22 ultra,train,5
+93,samsung | galaxy s22 ultra,train,5
+94,samsung | galaxy s22+,train,4
+95,samsung | galaxy s22+,train,4
+96,samsung | galaxy s22,train,1
+97,samsung | galaxy s22,train,1
+98,samsung | galaxy z fold 5,train,1
+99,samsung | galaxy z fold 5,train,1
+100,samsung | galaxy z flip 5,train,3
+101,samsung | galaxy z flip 5,train,3
+102,samsung | galaxy z fold 4,train,2
+103,samsung | galaxy z fold 4,train,2
+104,samsung | galaxy z flip 4,train,4
+105,samsung | galaxy z flip 4,train,4
+106,samsung | galaxy a54,train,2
+107,samsung | galaxy a54,train,2
+108,samsung | galaxy a34,train,3
+109,samsung | galaxy a34,train,3
+110,samsung | galaxy a24,train,4
+111,samsung | galaxy a24,train,4
+112,samsung | galaxy a14,train,5
+113,samsung | galaxy a14,train,5
+114,samsung | galaxy a04,train,1
+115,samsung | galaxy a04,train,1
+116,samsung | galaxy m54,train,1
+117,samsung | galaxy m54,train,1
+118,samsung | galaxy m34,train,2
+119,samsung | galaxy m34,train,2
+120,samsung | galaxy m14,train,3
+121,samsung | galaxy m14,train,3
+122,samsung | galaxy m04,train,4
+123,samsung | galaxy m04,train,4
+124,samsung | galaxy f54,train,5
+125,samsung | galaxy f54,train,5
+126,samsung | galaxy f34,train,1
+127,samsung | galaxy f34,train,1
+128,samsung | galaxy f14,test,0
+129,samsung | galaxy f14,test,0
+130,samsung | galaxy note 20 ultra,train,2
+131,samsung | galaxy note 20 ultra,train,2
+132,samsung | galaxy note 20,train,3
+133,samsung | galaxy note 20,train,3
+134,samsung | galaxy note 10+,train,4
+135,samsung | galaxy note 10+,train,4
+136,samsung | galaxy note 10,train,5
+137,samsung | galaxy note 10,train,5
+138,samsung | galaxy xcover 6 pro,train,1
+139,samsung | galaxy xcover 5,train,2
+140,samsung | galaxy j8,train,5
+141,samsung | galaxy j7 pro,train,1
+142,samsung | galaxy j6+,train,2
+143,samsung | galaxy j4,train,3
+144,samsung | galaxy c9 pro,train,4
+145,samsung | galaxy c7 pro,test,0
+146,samsung | galaxy c5,train,5
+147,samsung | galaxy w22 5g,train,3
+148,samsung | galaxy w21 5g,train,4
+149,oneplus | oneplus 12,train,2
+150,oneplus | oneplus 12r,train,1
+151,oneplus | oneplus 11,train,5
+152,oneplus | oneplus 11r,test,0
+153,oneplus | oneplus nord 3,train,3
+154,oneplus | oneplus nord ce 3,train,5
+155,oneplus | oneplus nord ce 3 lite,train,4
+156,oneplus | oneplus nord n30 5g,train,3
+157,oneplus | oneplus open,train,1
+158,oneplus | oneplus 10 pro,train,4
+159,oneplus | oneplus 10t,train,2
+160,oneplus | oneplus 9 pro,test,0
+161,oneplus | oneplus 9,train,4
+162,oneplus | oneplus 11 pro,train,4
+163,oneplus | oneplus nord 2t,train,4
+164,oneplus | oneplus nord 2,test,0
+165,oneplus | oneplus nord n200,train,4
+166,oneplus | oneplus nord n100,train,1
+167,oneplus | oneplus 8t cyberpunk 2077 edition,train,1
+168,oneplus | oneplus 9t,train,2
+169,oneplus | oneplus 8t,train,2
+170,oneplus | oneplus 10t 5g,train,1
+171,oneplus | oneplus 9r 5g,train,3
+172,oneplus | oneplus 8 pro,train,5
+173,oneplus | oneplus 8,train,1
+174,oneplus | oneplus nord ce 2 lite,train,1
+175,oneplus | oneplus nord ce 2,train,2
+176,oneplus | oneplus nord 1,train,1
+177,oneplus | oneplus nord ce 5g,train,3
+178,oneplus | oneplus nord 2 5g,train,5
+179,oneplus | oneplus nord n100 5g,train,5
+180,oneplus | oneplus nord n10 5g,train,2
+181,oneplus | oneplus 8r,train,3
+182,oneplus | oneplus 7r,train,3
+183,oneplus | oneplus 6t mclaren edition,train,5
+184,oneplus | oneplus 5t star wars edition,train,2
+185,oneplus | oneplus 13r,test,0
+186,oneplus | oneplus 11t,train,3
+187,oneplus | oneplus 10r,train,3
+188,oneplus | oneplus 7 pro 5g,train,4
+189,oneplus | oneplus 6 special edition,train,1
+190,oneplus | oneplus 5 special edition,test,0
+191,oneplus | oneplus nord x,train,2
+192,oneplus | oneplus 8 pro mclaren edition,train,4
+193,oneplus | oneplus 8t cyberpunk edition,train,5
+194,oneplus | oneplus 7t pro 5g mclaren edition,train,2
+195,oneplus | oneplus 15r,train,3
+196,oneplus | oneplus 14+,train,4
+197,oneplus | oneplus 13 pro,test,0
+198,oneplus | oneplus 12t 5g,train,5
+199,vivo | x200,train,4
+200,vivo | x200,train,4
+201,vivo | x200 pro,train,3
+202,vivo | x200 pro,train,3
+203,vivo | x200 pro mini,train,3
+204,vivo | v40e,train,5
+205,vivo | y200 gt,train,4
+206,vivo | t3 5g,test,0
+207,vivo | y100 5g,train,5
+208,vivo | s18 pro,test,0
+209,vivo | v30 pro,train,1
+210,vivo | iqoo 12,test,0
+211,vivo | z3,train,4
+212,vivo | v9,train,4
+213,vivo | x9 plus,train,1
+214,vivo | y81,test,0
+215,vivo | x5max,train,2
+216,vivo | v5 plus,test,0
+217,vivo | y95,train,5
+218,vivo | v3 max,test,0
+219,vivo | x3s,test,0
+220,vivo | y66,train,1
+221,vivo | v19,test,0
+222,vivo | v19,test,0
+223,vivo | v17 pro,test,0
+224,vivo | v17 pro,test,0
+225,vivo | y12s,train,4
+226,vivo | y12s,train,4
+227,vivo | s1 pro,train,5
+228,vivo | s1 pro,train,5
+229,vivo | y11,train,5
+230,vivo | y11,train,5
+231,vivo | v15,train,4
+232,vivo | v15,train,4
+233,vivo | x27 pro,train,2
+234,vivo | x27 pro,train,2
+235,vivo | y30,train,3
+236,vivo | y30,train,3
+237,vivo | z1 pro,test,0
+238,vivo | z1 pro,test,0
+239,vivo | x21,test,0
+240,vivo | x21,test,0
+241,vivo | v23e,test,0
+242,vivo | v23e,test,0
+243,vivo | y33s,test,0
+244,vivo | y33s,test,0
+245,vivo | x60 pro,train,5
+246,vivo | x60 pro,train,5
+247,vivo | v20 pro,train,3
+248,vivo | v20 pro,train,3
+249,vivo | y75 5g,train,1
+250,vivo | y75 5g,train,1
+251,vivo | y53s,train,2
+252,vivo | y53s,train,2
+253,vivo | v15 pro,test,0
+254,vivo | v15 pro,test,0
+255,vivo | x70 pro,train,4
+256,vivo | x70 pro,train,4
+257,vivo | t1 5g,test,0
+258,vivo | t1 5g,test,0
+259,vivo | x30 pro,train,1
+260,vivo | x30 pro,train,1
+261,vivo | v27,test,0
+262,vivo | v27,test,0
+263,vivo | v27 pro,train,5
+264,vivo | v27 pro,train,5
+265,vivo | v25 pro,train,1
+266,vivo | v25 pro,train,1
+267,vivo | x90 pro,train,2
+268,vivo | x90 pro,train,2
+269,vivo | y100,train,1
+270,vivo | y100,train,1
+271,vivo | t2 series,test,0
+272,vivo | t2 series,test,0
+273,vivo | v23 5g,train,2
+274,vivo | v23 5g,train,2
+275,vivo | x80,train,3
+276,vivo | x80,train,3
+277,vivo | y21,test,0
+278,vivo | y21,test,0
+279,oppo | find n3,train,2
+280,oppo | find n3 flip,train,1
+281,oppo | find x8 pro,train,3
+282,oppo | find x8,train,4
+283,oppo | reno13 f 4g,test,0
+284,oppo | reno13 f,train,4
+285,oppo | reno13 pro,test,0
+286,oppo | reno13,test,0
+287,oppo | reno12 f 4g,train,1
+288,oppo | reno12 f,train,2
+289,oppo | reno12 pro,train,5
+290,oppo | reno12,train,3
+291,oppo | reno11 f,train,5
+292,oppo | reno11 pro,train,4
+293,oppo | a5 pro,train,5
+294,oppo | a5 pro,train,5
+295,oppo | a80,train,4
+296,oppo | a3 4g,train,4
+297,oppo | a3x 4g,train,2
+298,oppo | a3x 4g,train,2
+299,oppo | a3,train,5
+300,oppo | a3x,train,3
+301,oppo | a3x,train,3
+302,oppo | a60,test,0
+303,oppo | a60,test,0
+304,oppo | k12 plus,train,2
+305,oppo | k12 plus,train,2
+306,oppo | f27,train,3
+307,oppo | f27,train,3
+308,oppo | f27 pro+,train,2
+309,oppo | f27 pro+,train,2
+310,oppo | f25 pro,test,0
+311,oppo | f25 pro,test,0
+312,oppo | find x7 ultra,train,2
+313,oppo | find x7 ultra,train,2
+314,oppo | find x7,train,3
+315,oppo | find x7,train,3
+316,oppo | find x6 pro,train,4
+317,oppo | find x6 pro,train,4
+318,oppo | find x6,test,0
+319,oppo | find x6,test,0
+320,oppo | find x5 pro,train,5
+321,oppo | find x5 pro,train,5
+322,oppo | find x5,train,5
+323,oppo | find n2 flip,train,1
+324,oppo | find n2 flip,train,1
+325,oppo | find n2,train,3
+326,oppo | reno10 5g,train,2
+327,oppo | reno10 5g,train,2
+328,oppo | reno10 pro 5g,train,1
+329,oppo | reno10 pro+ 5g,test,0
+330,oppo | reno9 5g,train,4
+331,oppo | reno9 5g,train,4
+332,oppo | reno9 pro 5g,test,0
+333,oppo | reno9 pro+ 5g,train,2
+334,oppo | reno8 5g,test,0
+335,oppo | reno8 5g,test,0
+336,oppo | reno8 pro 5g,train,4
+337,oppo | reno8 pro+ 5g,train,3
+338,oppo | reno7 5g,train,5
+339,oppo | reno7 5g,train,5
+340,oppo | reno7 pro 5g,train,5
+341,oppo | reno6 5g,train,2
+342,oppo | reno6 5g,train,2
+343,oppo | reno6 pro 5g,train,1
+344,oppo | reno6 pro 5g,train,1
+345,oppo | reno6 pro+ 5g,train,1
+346,oppo | reno5 5g,train,4
+347,oppo | reno5 5g,train,4
+348,oppo | reno5 pro 5g,train,3
+349,oppo | reno5 pro 5g,train,3
+350,oppo | reno5 pro+ 5g,train,2
+351,oppo | reno4 5g,train,5
+352,oppo | reno4 5g,train,5
+353,oppo | reno4 pro 5g,train,3
+354,oppo | reno3 5g,train,1
+355,oppo | reno3 5g,train,1
+356,oppo | reno3 pro 5g,test,0
+357,oppo | a59 5g,train,4
+358,oppo | a59 5g,train,4
+359,oppo | a58 5g,train,5
+360,oppo | a57 5g,train,1
+361,oppo | a56 5g,train,2
+362,oppo | a55 5g,train,3
+363,oppo | a54 5g,train,4
+364,oppo | a53 5g,train,5
+365,oppo | a52 5g,train,1
+366,oppo | a51 5g,train,2
+367,oppo | a50 5g,test,0
+368,oppo | a49 5g,train,3
+369,oppo | a40,train,1
+370,oppo | a40,train,1
+371,oppo | k11x,train,3
+372,oppo | k11x,train,3
+373,oppo | k10x,train,5
+374,oppo | k10x,train,5
+375,oppo | k10 5g,train,1
+376,oppo | k9x,train,3
+377,oppo | k9x,train,3
+378,oppo | k9 pro 5g,train,4
+379,oppo | k9 pro 5g,train,4
+380,oppo | k9 5g,train,5
+381,oppo | k9 5g,train,5
+382,oppo | k7x,train,2
+383,oppo | k7 5g,train,1
+384,oppo | k7 5g,train,1
+385,oppo | k11,train,4
+386,oppo | k11,train,4
+387,oppo | k10 5g,train,1
+388,realme | gt 7 pro,train,3
+389,realme | gt 7 pro,train,3
+390,realme | gt 6,train,5
+391,realme | gt 6,train,5
+392,realme | gt 6,train,5
+393,realme | gt 6t,train,5
+394,realme | gt 6t,train,5
+395,realme | 14 pro+ 5g,test,0
+396,realme | 14 pro+ 5g,test,0
+397,realme | 14 pro 5g,test,0
+398,realme | 14 pro 5g,test,0
+399,realme | 14x 5g,train,4
+400,realme | 14x 5g,train,4
+401,realme | 13+ 5g,train,5
+402,realme | 13+ 5g,train,5
+403,realme | 13 5g,train,3
+404,realme | 13 5g,train,3
+405,realme | 13 pro 5g,train,2
+406,realme | 13 pro 5g,train,2
+407,realme | 13 pro+ 5g,train,1
+408,realme | 13 pro+ 5g,train,1
+409,realme | p1 speed 5g,train,2
+410,realme | p1 speed 5g,train,2
+411,realme | p2 pro 5g,train,1
+412,realme | p2 pro 5g,train,1
+413,realme | p1 5g,train,4
+414,realme | p1 5g,train,4
+415,realme | p1 pro 5g,train,3
+416,realme | p1 pro 5g,train,3
+417,realme | narzo 70 turbo 5g,train,2
+418,realme | narzo 70 turbo 5g,train,2
+419,realme | narzo n61,test,0
+420,realme | narzo n63,test,0
+421,realme | narzo n65 5g,train,3
+422,realme | narzo 70 5g,train,4
+423,realme | c75,train,1
+424,realme | c75,train,1
+425,realme | c61,train,1
+426,realme | c67,train,2
+427,realme | c67,train,2
+428,realme | c65,test,0
+429,realme | c65,test,0
+430,realme | c63,train,5
+431,realme | c55,train,3
+432,realme | c55,train,3
+433,realme | note 60x,train,1
+434,realme | note 60,train,5
+435,realme | note 60,train,5
+436,realme | note 50,train,2
+437,realme | gt 7,train,4
+438,realme | gt 7,train,4
+439,realme | neo 7,train,1
+440,realme | neo 7,train,1
+441,realme | p2 pro 5g,train,1
+442,realme | p2 pro 5g,train,1
+443,xiaomi | xiaomi 15 pro,train,2
+444,xiaomi | xiaomi 15 pro,train,2
+445,xiaomi | xiaomi 15 pro,train,2
+446,xiaomi | xiaomi 15,train,2
+447,xiaomi | xiaomi 15,train,2
+448,xiaomi | xiaomi 14t pro,train,3
+449,xiaomi | xiaomi 14t pro,train,3
+450,xiaomi | xiaomi 14t pro,train,3
+451,xiaomi | xiaomi 14t,train,3
+452,xiaomi | xiaomi 14t,train,3
+453,xiaomi | xiaomi 14 pro,test,0
+454,xiaomi | xiaomi 14 pro,test,0
+455,xiaomi | xiaomi 14,test,0
+456,xiaomi | xiaomi 14,test,0
+457,xiaomi | redmi note 14 pro+ 5g,test,0
+458,xiaomi | redmi note 14 pro+ 5g,test,0
+459,xiaomi | redmi note 14 pro+ 5g,test,0
+460,xiaomi | redmi note 14 pro 5g,train,4
+461,xiaomi | redmi note 14 pro 5g,train,4
+462,xiaomi | redmi note 14 pro 4g,test,0
+463,xiaomi | redmi note 14 pro 4g,test,0
+464,xiaomi | redmi note 14 5g,test,0
+465,xiaomi | redmi note 14 5g,test,0
+466,xiaomi | redmi note 14 4g,train,5
+467,xiaomi | redmi note 14 4g,train,5
+468,xiaomi | redmi 14c 5g,test,0
+469,xiaomi | redmi 14c 5g,test,0
+470,lenovo | legion y70,train,2
+471,lenovo | legion y70,train,2
+472,lenovo | legion y70,train,2
+473,lenovo | k14 plus,train,3
+474,lenovo | k14 plus,train,3
+475,lenovo | k13 pro,train,2
+476,lenovo | k13,test,0
+477,lenovo | k13 note,train,3
+478,lenovo | k10 plus,train,4
+479,lenovo | a6 note,test,0
+480,lenovo | k10 note,train,4
+481,lenovo | k10 note,train,4
+482,lenovo | z6 pro,train,2
+483,lenovo | z6 pro,train,2
+484,lenovo | z5 pro,train,1
+485,motorola | edge 50 fusion,test,0
+486,motorola | edge 50 fusion,test,0
+487,motorola | edge 50 pro,train,1
+488,motorola | edge 50 pro,train,1
+489,motorola | razr,test,0
+490,motorola | razr,test,0
+491,motorola | g84 5g,train,5
+492,motorola | g84 5g,train,5
+493,motorola | moto g stylus,test,0
+494,motorola | moto g stylus,test,0
+495,motorola | one vision 3,train,3
+496,motorola | one vision 3,train,3
+497,motorola | edge 50 lite,train,3
+498,motorola | edge 50 lite,train,3
+499,motorola | moto e40 plus,train,3
+500,motorola | moto e40 plus,train,3
+501,motorola | moto g power,train,1
+502,motorola | moto g power,train,1
+503,motorola | moto g play,train,2
+504,motorola | moto g play,train,2
+505,motorola | moto g75 5g,test,0
+506,motorola | moto g75 5g,test,0
+507,motorola | moto s50,train,4
+508,motorola | moto s50,train,4
+509,motorola | edge 50 neo,train,2
+510,motorola | edge 50 neo,train,2
+511,motorola | moto g55,test,0
+512,motorola | moto g55,test,0
+513,motorola | moto g35,train,4
+514,motorola | moto g35,train,4
+515,motorola | moto g45,train,3
+516,motorola | moto g45,train,3
+517,motorola | edge 50,train,4
+518,motorola | edge 50,train,4
+519,motorola | razr 50 ultra,train,1
+520,motorola | razr 50,train,2
+521,motorola | moto g85,train,5
+522,motorola | moto g85,train,5
+523,motorola | s50 neo,train,2
+524,motorola | s50 neo,train,2
+525,motorola | moto e14,train,4
+526,motorola | moto e14,train,4
+527,motorola | edge,train,1
+528,motorola | edge,train,1
+529,motorola | moto x50 ultra,train,3
+530,motorola | moto g stylus 5g,train,5
+531,motorola | moto g stylus 5g,train,5
+532,motorola | edge 50 ultra,train,5
+533,motorola | edge 30 fusion,test,0
+534,motorola | edge 30 fusion,test,0
+535,motorola | edge 30 neo,train,5
+536,motorola | edge 30 neo,train,5
+537,motorola | moto g82 5g,train,1
+538,motorola | moto g82 5g,train,1
+539,motorola | moto g62 5g,train,2
+540,motorola | moto g62 5g,train,2
+541,motorola | moto g42,train,4
+542,motorola | moto g32,train,5
+543,motorola | moto e32s,train,2
+544,motorola | moto e22i,train,3
+545,motorola | moto e22,train,4
+546,motorola | moto g22,train,1
+547,huawei | mate xt,train,2
+548,huawei | mate xt,train,2
+549,huawei | nova 13,train,1
+550,huawei | nova 13,train,1
+551,huawei | nova 13 pro,train,5
+552,huawei | nova 13 pro,train,5
+553,nokia | g42 5g,train,5
+554,nokia | g20,train,5
+555,nokia | g20,train,5
+556,nokia | c32,test,0
+557,nokia | c32,test,0
+558,nokia | g21,train,4
+559,nokia | g21,train,4
+560,nokia | c22,train,1
+561,nokia | c22,train,1
+562,nokia | g400,test,0
+563,sony | xperia 1 iv,test,0
+564,sony | xperia 5 iv,train,1
+565,sony | xperia 10 iv,test,0
+566,sony | xperia 1 v,train,5
+567,sony | xperia 5 v,test,0
+568,sony | xperia 10 v,train,3
+569,sony | xperia 1 vi,train,4
+570,sony | xperia 5 vi,train,5
+571,sony | xperia 10 vi,train,2
+572,google | pixel 3a,train,3
+573,google | pixel 3a xl,train,2
+574,google | pixel 4,train,1
+575,google | pixel 4 xl,test,0
+576,google | pixel 4a,train,5
+577,google | pixel 4a 5g,train,4
+578,google | pixel 5,test,0
+579,google | pixel 5a,train,3
+580,google | pixel 6,train,2
+581,google | pixel 6 pro,train,1
+582,google | pixel 6a,train,5
+583,google | pixel 7,train,4
+584,google | pixel 7 pro,test,0
+585,google | pixel 7a,train,3
+586,google | pixel 8,train,2
+587,google | pixel 8 pro,test,0
+588,google | pixel 8a,train,1
+589,google | pixel 9,train,5
+590,google | pixel 9 pro,train,4
+591,google | pixel 9 pro xl,train,2
+592,google | pixel 9 pro fold,train,3
+593,tecno | spark go 1s,train,3
+594,tecno | pop 9 4g,train,2
+595,tecno | camon 30s,train,3
+596,tecno | spark 30c 5g,test,0
+597,tecno | spark 30 5g,train,5
+598,tecno | pop 9,train,3
+599,tecno | spark 30 pro,test,0
+600,tecno | spark 30,train,1
+601,tecno | phantom v fold2,train,5
+602,tecno | phantom v flip2,train,1
+603,tecno | pova 6 neo 5g,train,3
+604,tecno | spark 30c,train,4
+605,tecno | spark go 1,test,0
+606,tecno | camon 30s pro,train,2
+607,tecno | spark 20p,train,2
+608,tecno | spark 20 pro 5g,train,4
+609,tecno | pova 6 neo,train,4
+610,tecno | camon 30 premier,train,5
+611,tecno | camon 30 pro,train,4
+612,tecno | camon 30 5g,train,1
+613,tecno | camon 30,train,2
+614,tecno | pova 6 pro,train,2
+615,tecno | spark 20 pro+,train,3
+616,tecno | spark 20 pro,train,5
+617,tecno | spark 20,train,1
+618,tecno | spark 20c,test,0
+619,tecno | spark go 2024,train,2
+620,tecno | pop 8,train,4
+621,tecno | camon 20s pro 5g,train,3
+622,tecno | camon 20s pro,train,4
+623,tecno | camon 20s,train,5
+624,tecno | camon 20 premier,train,3
+625,tecno | camon 20 pro 5g,train,1
+626,tecno | camon 20 pro,train,2
+627,tecno | camon 20,train,4
+628,tecno | pova 5g,train,5
+629,tecno | pova 5,train,1
+630,infinix | hot 50 5g,test,0
+631,infinix | gt 20 pro,train,5
+632,infinix | note 40x 5g,test,0
+633,infinix | note 40 5g,test,0
+634,infinix | note 40 pro 5g,test,0
+635,infinix | zero 40 5g,train,3
+636,infinix | zero flip,train,5
+637,infinix | hot 30,train,5
+638,infinix | hot 30i,train,4
+639,infinix | hot 30i nfc,test,0
+640,infinix | hot 30 play,test,0
+641,infinix | hot 30 5g,test,0
+642,infinix | zero 30,train,5
+643,infinix | zero 30 5g,train,4
+644,infinix | gt 10 pro,train,1
+645,infinix | hot 12,train,2
+646,infinix | hot 12 play,test,0
+647,infinix | hot 12 pro,train,1
+648,infinix | hot 12i,train,5
+649,infinix | hot 20,train,4
+650,infinix | hot 20 play,train,2
+651,infinix | hot 20s,test,0
+652,infinix | hot 20 5g,train,3
+653,infinix | hot 20i,train,1
+654,infinix | hot 10t,train,1
+655,infinix | hot 10s,test,0
+656,infinix | hot 10s nfc,train,2
+657,infinix | hot 10 lite,train,3
+658,infinix | hot 10 play,test,0
+659,infinix | hot 11,train,5
+660,infinix | hot 11 play,train,4
+661,infinix | hot 11s,train,3
+662,infinix | smart hd,train,1
+663,infinix | note 8i,train,2
+664,infinix | note 8,train,3
+665,infinix | zero 8i,train,1
+666,infinix | hot 10,train,4
+667,infinix | zero 8,train,2
+668,infinix | smart 5,test,0
+669,poco | f2 pro,train,5
+670,poco | m2 pro,train,2
+671,poco | x3 nfc,train,3
+672,poco | m3,train,1
+673,poco | f3,train,4
+674,poco | x3 pro,test,0
+675,poco | m3 pro 5g,train,5
+676,poco | f3 gt,train,3
+677,poco | x3 gt,train,4
+678,poco | m4 pro 5g,train,4
+679,poco | f4,train,2
+680,poco | f4 gt,train,1
+681,poco | x4 pro 5g,train,2
+682,poco | m4 pro,test,0
+683,poco | m5,train,3
+684,poco | m5s,train,2
+685,poco | f5,train,5
+686,poco | f5 pro,train,4
+687,poco | x5,train,1
+688,poco | x5 pro,train,5
+689,poco | m6,train,1
+690,poco | m6 pro,train,5
+691,poco | x6,train,4
+692,poco | x6 pro,test,0
+693,poco | f6,test,0
+694,poco | f6 pro,train,3
+695,poco | c65,train,1
+696,poco | x7,train,3
+697,poco | x7 pro,train,2
+698,poco | m7 5g,test,0
+699,samsung | galaxy z fold6,train,4
+700,samsung | galaxy z fold6,train,4
+701,samsung | galaxy z fold6,train,4
