@@ -1,0 +1,10 @@
+,"r (name-only, n=695)","r (with web lookup, n=702)",difference
+log2_storage,0.609,0.604,-0.005
+log2_ram,0.529,0.523,-0.006
+weight_g,0.318,0.316,-0.002
+n_back_cameras,0.255,0.258,0.003
+front_mp,0.216,0.208,-0.008
+main_back_mp,0.14,0.129,-0.011
+screen_in,0.119,0.113,-0.006
+year,0.094,0.088,-0.006
+battery_mah,-0.258,-0.261,-0.003

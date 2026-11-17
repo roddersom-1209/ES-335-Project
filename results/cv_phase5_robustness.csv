@@ -1,0 +1,5 @@
+model,data,best α,CV R²,median % error,RAM ×2 %,storage ×2 %
+Ridge,with web lookup,1.5264,0.847,18.3,48.9,11.0
+Ridge,name-only,1.5264,0.848,18.0,49.9,10.3
+Lasso,with web lookup,0.0014,0.848,18.0,,
+Lasso,name-only,0.0014,0.849,18.0,,

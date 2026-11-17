@@ -1,0 +1,5 @@
+step,rows_left,dropped
+raw file,930,0
+remove tablets,830,100
+drop exact duplicates,815,15
+drop rows with missing values,702,113
