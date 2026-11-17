@@ -1,0 +1,17 @@
+# Python's temporary files
+__pycache__/
+*.pyc
+
+# Jupyter's automatic backups
+.ipynb_checkpoints/
+
+# Local Python environment (recreate with: pip install -r requirements.txt)
+.venv/
+venv/
+
+# Editor and operating-system clutter
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
